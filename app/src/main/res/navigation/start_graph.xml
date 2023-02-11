@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/start_graph"
+    >
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment" />
+</navigation>

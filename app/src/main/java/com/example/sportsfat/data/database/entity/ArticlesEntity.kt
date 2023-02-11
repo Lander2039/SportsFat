@@ -13,6 +13,6 @@ data class ArticlesEntity(
     val articlesName: String,
     @ColumnInfo("articlesText")
     val articlesText: String,
-    @ColumnInfo("imageUrl")
+    @ColumnInfo("image-Url")
     val imageUrl: String
 )

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/JTGkkl")
+    @GET("/h_blY-")
     suspend fun getData(): Response<ArticlesResponse>
 }

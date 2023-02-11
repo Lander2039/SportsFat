@@ -1,5 +1,6 @@
 package com.example.sportsfat.presentation.adapters.articles
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ class ArticlesAdapter(
     private var listArticles = mutableListOf<ArticlesModel>()
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(list: List<ArticlesModel>) {
         this.listArticles.clear()
         this.listArticles = list.toMutableList()

@@ -1,3 +1,3 @@
 package com.example.sportsfat.data.model
 
-data class ProductsResponse()
+//data class ProductsResponse()

@@ -13,4 +13,7 @@ interface ArticlesDAO {
 
     @Query("SELECT * From articlesEntity ")
     fun getArticlesEntities(): Flow<List<ArticlesEntity>>
+
+    @Query("SELECT (SELECT COUNT(*) FROM articlesEntity) != 0")
+    fun doesArticlesEntityExist(): Boolean
 }
