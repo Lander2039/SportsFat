@@ -64,8 +64,8 @@ class ArticlesFragment : Fragment(), ArticlesListener {
             if (navBundle != null) {
                 val bundle = Bundle()
                 bundle.putString(NAME_ARTICLES, navBundle.articlesName)
-                bundle.putString(TEXT_ARTICLES, navBundle.articlesText)
                 bundle.putString(IMAGE_ARTICLES, navBundle.imageArticles)
+                bundle.putString(TEXT_ARTICLES, navBundle.articlesText)
 
                 navigateWithBundle(
                     navBundle.destinationId, bundle
@@ -75,7 +75,7 @@ class ArticlesFragment : Fragment(), ArticlesListener {
         }
     }
 
-    override fun onElementSelected(articlesName: String, articlesText: String, imageArticles: String) {
-        viewModel.elementClicked(articlesName,articlesText,imageArticles)
+    override fun onElementSelected(articlesName: String,  image: String, articlesText: String) {
+        viewModel.elementClicked(articlesName,image, articlesText)
     }
 }

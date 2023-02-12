@@ -20,14 +20,14 @@ class ArticlesRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             if (!articlesDAO.doesArticlesEntityExist()) {
                 val response = apiService.getData()
-                response.body()?.articles?.let { articlesList ->
+                response.body()?.sampleList?.let { articlesList ->
                     articlesList.map { articles ->
                         val articlesEntity =
                             ArticlesEntity(
                                 Random().nextInt(),
-                                articles.articlesName,
-                                articles.articlesText,
-                                articles.imageUrl
+                                articles.description,
+                                articles.imageUrl,
+                                articles.articlesText
                             )
                         articlesDAO.insertArticlesEntity(articlesEntity)
                     }
@@ -42,7 +42,7 @@ class ArticlesRepositoryImpl @Inject constructor(
             articlesEntity.map { articlesList ->
                 articlesList.map {
                     ArticlesModel(
-                        it.articlesName, it.articlesText, it.imageUrl
+                        it.description, it.imageUrl, it.articlesText
                     )
                 }
             }

@@ -22,11 +22,11 @@ class ArticlesViewModel @Inject constructor(private val articlesInteractor: Arti
         articlesInteractor.getData()
     }
 
-    fun elementClicked(articlesName: String, articlesText: String, imageArticles: String) {
+    fun elementClicked(articlesName: String, imageArticles: String, articlesText: String) {
         _bundle.value = NavigateWithBundle(
             articlesName,
-            articlesText,
             imageArticles,
+            articlesText,
             destinationId = R.id.action_articlesFragment_to_detailsArticlesFragment
         )
     }
@@ -38,7 +38,7 @@ class ArticlesViewModel @Inject constructor(private val articlesInteractor: Arti
 
 data class NavigateWithBundle(
     val articlesName: String,
-    val articlesText: String,
     val imageArticles: String,
+    val articlesText: String,
     val destinationId: Int
 )

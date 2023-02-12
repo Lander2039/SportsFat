@@ -15,15 +15,15 @@ class ArticlesViewHolder(
 
 
     fun bind(articlesModel: ArticlesModel) {
-        viewBinding.tvNameArticles.text = articlesModel.nameArticles
-        viewBinding.tvTextArticles.text = articlesModel.textArticles
+        viewBinding.tvNameArticles.text = articlesModel.description
+        Picasso.get().load(Uri.parse(articlesModel.image)).into(viewBinding.ivImageArticles)
 
-        Picasso.get().load(Uri.parse(articlesModel.imageArticles)).into(viewBinding.ivImageArticles)
+
     viewBinding.ivImageArticles.setOnClickListener {
         articlesListener.onElementSelected(
-            articlesModel.nameArticles,
-            articlesModel.textArticles,
-            articlesModel.imageArticles
+            articlesModel.description,
+            articlesModel.image,
+            articlesModel.articlesText
         )
     }
     }

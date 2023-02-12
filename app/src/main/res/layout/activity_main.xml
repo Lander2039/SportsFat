@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.activity.MainActivity">
+    tools:context=".presentation.view.activity.MainActivity"
+    android:background="@color/grey">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        
+
          />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
