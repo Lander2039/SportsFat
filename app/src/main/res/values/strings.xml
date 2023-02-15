@@ -5,4 +5,11 @@
     <string name="articles">Articles</string>
     <string name="start">Start</string>
     <string name="start2">Start2</string>
+    <string name="enterProductName">Enter product name</string>
+    <string name="product_name">Product Name:</string>
+    <string name="calories">Calories</string>
+    <string name="squirrels">squirrels</string>
+    <string name="fats">fats</string>
+    <string name="carbohydrates">carbohydrates</string>
+    <string name="products">Products</string>
 </resources>

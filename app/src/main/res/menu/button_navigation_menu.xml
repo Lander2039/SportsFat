@@ -6,4 +6,10 @@
         android:title="@string/articles"
         android:icon="@drawable/ic__article"
         />
+
+    <item
+        android:id="@+id/productsFragment"
+        android:title="@string/products"
+        android:icon="@drawable/ic_search"
+        />
 </menu>

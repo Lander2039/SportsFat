@@ -1,8 +1,9 @@
 package com.example.sportsfat.data.repositoryImpl
 
-import com.example.sportsfat.data.database.dao.ArticlesDAO
+import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.service.ApiService
+import com.example.sportsfat.data.service.ApiServiceSecond
 import com.example.sportsfat.domain.articles.ArticlesRepository
 import com.example.sportsfat.domain.model.ArticlesModel
 import kotlinx.coroutines.Dispatchers
@@ -11,14 +12,16 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.util.*
 import javax.inject.Inject
+import javax.inject.Named
 
 class ArticlesRepositoryImpl @Inject constructor(
-    private val apiService: ApiService,
-    private val articlesDAO: ArticlesDAO
+    @Named("FIRST") private val apiService: ApiService,
+    @Named("SECOND") private val apiServiceSecond: ApiServiceSecond,
+    private val DAO: DAO
 ) : ArticlesRepository {
     override suspend fun getData() {
         return withContext(Dispatchers.IO) {
-            if (!articlesDAO.doesArticlesEntityExist()) {
+            if (!DAO.doesArticlesEntityExist()) {
                 val response = apiService.getData()
                 response.body()?.sampleList?.let { articlesList ->
                     articlesList.map { articles ->
@@ -29,7 +32,7 @@ class ArticlesRepositoryImpl @Inject constructor(
                                 articles.imageUrl,
                                 articles.articlesText
                             )
-                        articlesDAO.insertArticlesEntity(articlesEntity)
+                        DAO.insertArticlesEntity(articlesEntity)
                     }
                 }
             }
@@ -38,7 +41,7 @@ class ArticlesRepositoryImpl @Inject constructor(
 
     override suspend fun showData(): Flow<List<ArticlesModel>> {
         return withContext(Dispatchers.IO) {
-            val articlesEntity = articlesDAO.getArticlesEntities()
+            val articlesEntity = DAO.getArticlesEntities()
             articlesEntity.map { articlesList ->
                 articlesList.map {
                     ArticlesModel(

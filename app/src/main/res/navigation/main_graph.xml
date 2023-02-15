@@ -19,4 +19,9 @@
         android:name="com.example.sportsfat.presentation.view.fragments.articles.detailsArticles.DetailsArticlesFragment"
         android:label="fragment_details_articles"
         tools:layout="@layout/fragment_details_articles" />
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.products.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" />
 </navigation>

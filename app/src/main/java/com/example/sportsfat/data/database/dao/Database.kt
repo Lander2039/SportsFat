@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.sportsfat.data.database.entity.ArticlesEntity
+import com.example.sportsfat.data.database.entity.ProductsEntity
 
-@androidx.room.Database(entities = [ArticlesEntity::class], version = 1, exportSchema = false)
+@androidx.room.Database(entities = [ArticlesEntity::class, ProductsEntity::class], version = 1, exportSchema = false)
 abstract class Database : RoomDatabase() {
 
-    abstract fun getItemsDAO(): ArticlesDAO
+    abstract fun getItemsDAO(): DAO
 
     companion object {
         private var DB_INSTANCE: Database? = null

@@ -1,7 +1,7 @@
 package com.example.sportsfat.di
 
 import android.content.Context
-import com.example.sportsfat.data.database.dao.ArticlesDAO
+import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.dao.Database
 import dagger.Module
 import dagger.Provides
@@ -13,12 +13,12 @@ import dagger.hilt.components.SingletonComponent
 class DatabaseModule {
 
     @Provides
-    fun provideArticlesDao(Database: Database): ArticlesDAO{
+    fun provideDao(Database: Database): DAO {
         return Database.getItemsDAO()
     }
 
     @Provides
-    fun articlesDatabase(context: Context) :Database{
+    fun Database(context: Context): Database {
         return Database.getItemsDatabaseInstance(context)
     }
 }
