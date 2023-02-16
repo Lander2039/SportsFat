@@ -3,7 +3,6 @@ package com.example.sportsfat.data.repositoryImpl
 import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.service.ApiService
-import com.example.sportsfat.data.service.ApiServiceSecond
 import com.example.sportsfat.domain.articles.ArticlesRepository
 import com.example.sportsfat.domain.model.ArticlesModel
 import kotlinx.coroutines.Dispatchers
@@ -12,11 +11,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.util.*
 import javax.inject.Inject
-import javax.inject.Named
 
 class ArticlesRepositoryImpl @Inject constructor(
-    @Named("FIRST") private val apiService: ApiService,
-    @Named("SECOND") private val apiServiceSecond: ApiServiceSecond,
+    private val apiService: ApiService,
     private val DAO: DAO
 ) : ArticlesRepository {
     override suspend fun getData() {

@@ -19,12 +19,12 @@ class ArticlesViewHolder(
         Picasso.get().load(Uri.parse(articlesModel.image)).into(viewBinding.ivImageArticles)
 
 
-    viewBinding.ivImageArticles.setOnClickListener {
-        articlesListener.onElementSelected(
-            articlesModel.description,
-            articlesModel.image,
-            articlesModel.articlesText
-        )
-    }
+        viewBinding.ivImageArticles.setOnClickListener {
+            articlesListener.onElementSelected(
+                articlesModel.description,
+                articlesModel.image,
+                articlesModel.articlesText
+            )
+        }
     }
 }

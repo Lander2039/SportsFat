@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentArticlesBinding
 import com.example.sportsfat.presentation.adapters.articles.ArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener

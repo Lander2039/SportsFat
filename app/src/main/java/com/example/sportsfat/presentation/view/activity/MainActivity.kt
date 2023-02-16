@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(LayoutInflater.from(this))
         setContentView(viewBinding.root)
+        val actionBar = supportActionBar
+        actionBar?.hide()
 
         viewModel.checkUserExists()
 

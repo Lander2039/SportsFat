@@ -1,10 +1,8 @@
 package com.example.sportsfat.data.repositoryImpl
 
 import com.example.sportsfat.data.database.dao.DAO
-import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
-import com.example.sportsfat.data.service.ApiServiceSecond
-import com.example.sportsfat.domain.model.ArticlesModel
+import com.example.sportsfat.data.service.ApiService
 import com.example.sportsfat.domain.model.ProductsModel
 import com.example.sportsfat.domain.products.ProductsRepository
 import kotlinx.coroutines.Dispatchers
@@ -13,16 +11,15 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.util.*
 import javax.inject.Inject
-import javax.inject.Named
 
 class ProductsRepositoryImpl @Inject constructor(
-    @Named("SECOND") private val apiServiceSecond: ApiServiceSecond,
+    private val apiService: ApiService,
     private val DAO: DAO
 ) : ProductsRepository {
     override suspend fun getData() {
         return withContext(Dispatchers.IO) {
             if (!DAO.doesArticlesEntityExist()) {
-                val response = apiServiceSecond.getDataProducts()
+                val response = apiService.getDataProducts()
                 response.body()?.sampleList?.let { productsList ->
                     productsList.map { product ->
                         val productsEntity =
@@ -47,7 +44,7 @@ class ProductsRepositoryImpl @Inject constructor(
             productsEntity.map { productsList ->
                 productsList.map {
                     ProductsModel(
-                        it.id, it.name, it.calories,it.squirrels,it.fats,it.carbohydrates
+                        it.name, it.calories, it.squirrels, it.fats, it.carbohydrates
                     )
                 }
             }
@@ -58,7 +55,6 @@ class ProductsRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             val productsEntity = DAO.findProductsEntityByDescription(searchText)
             ProductsModel(
-                productsEntity.id,
                 productsEntity.name,
                 productsEntity.calories,
                 productsEntity.squirrels,
