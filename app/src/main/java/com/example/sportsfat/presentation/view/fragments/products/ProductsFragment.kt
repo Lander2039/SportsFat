@@ -32,7 +32,7 @@ class ProductsFragment : Fragment(), ProductsListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        viewModel.getDataProducts()
 
         viewBinding.searchProducts.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {

@@ -18,14 +18,20 @@ class ProductsViewModel @Inject constructor(private val productsInteractor: Prod
     private val _product = MutableLiveData<ProductsModel>()
     val product: LiveData<ProductsModel> = _product
 
-    suspend fun getDataProducts() {
-        productsInteractor.getData()
+    fun getDataProducts() {
+        viewModelScope.launch {
+            try {
+                productsInteractor.getData()
+            } catch (e: Exception) {
+                Log.w("exception", e.toString())
+            }
+        }
+
     }
 
     fun findProduct(searchText: String) {
         viewModelScope.launch {
             try {
-                productsInteractor.getData()
                 val foundProduct = productsInteractor.findProduct(searchText)
                 _product.value = foundProduct
             } catch (e: Exception) {
