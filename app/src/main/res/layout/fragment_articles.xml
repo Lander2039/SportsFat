@@ -8,6 +8,7 @@
     tools:context=".presentation.view.fragments.articles.ArticlesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/res_articles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

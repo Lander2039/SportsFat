@@ -9,10 +9,10 @@ data class ArticlesEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo("id")
     val id: Int,
-    @ColumnInfo("articlesName")
-    val articlesName: String,
+    @ColumnInfo("description")
+    val description: String,
+    @ColumnInfo("imageUrl")
+    val imageUrl: String,
     @ColumnInfo("articlesText")
     val articlesText: String,
-    @ColumnInfo("imageUrl")
-    val imageUrl: String
 )

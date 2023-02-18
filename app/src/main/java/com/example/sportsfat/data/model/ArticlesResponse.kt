@@ -3,15 +3,17 @@ package com.example.sportsfat.data.model
 import com.google.gson.annotations.SerializedName
 
 data class ArticlesResponse(
-    @SerializedName("articles")
-    val articlesList: List<Articles>
+    @SerializedName("sample")
+    val sampleList: List<Articles>
 )
 
 data class Articles(
-    @SerializedName("articlesName")
-    val articlesName: String,
+    @SerializedName("description")
+    val description: String,
+
+    @SerializedName("image-url")
+    val imageUrl: String,
+
     @SerializedName("articlesText")
     val articlesText: String,
-    @SerializedName("imageUrl")
-    val imageUrl: String
 )
