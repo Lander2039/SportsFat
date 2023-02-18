@@ -8,19 +8,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.domain.model.ProductsModel
 import com.example.sportsfat.domain.products.ProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductsViewModel @Inject constructor( private val productsInteractor: ProductsInteractor): ViewModel() {
-
-    val items = flow { emit(productsInteractor.showData()) }
+class ProductsViewModel @Inject constructor(private val productsInteractor: ProductsInteractor) :
+    ViewModel() {
 
     private val _product = MutableLiveData<ProductsModel>()
     val product: LiveData<ProductsModel> = _product
 
-    suspend fun getDataProducts(){
+    suspend fun getDataProducts() {
         productsInteractor.getData()
     }
 
@@ -30,7 +28,7 @@ class ProductsViewModel @Inject constructor( private val productsInteractor: Pro
                 productsInteractor.getData()
                 val foundProduct = productsInteractor.findProduct(searchText)
                 _product.value = foundProduct
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.w("exception", e.toString())
             }
         }
