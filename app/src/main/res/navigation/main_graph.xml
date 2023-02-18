@@ -24,4 +24,27 @@
         android:name="com.example.sportsfat.presentation.view.fragments.products.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" />
+    <fragment
+        android:id="@+id/workoutsFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.workouts.WorkoutsFragment"
+        android:label="fragment_workouts"
+        tools:layout="@layout/fragment_workouts" >
+        <action
+            android:id="@+id/action_workoutsFragment_to_mondayFragment"
+            app:destination="@id/mondayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mondayFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.MondayFragment"
+        android:label="fragment_monday"
+        tools:layout="@layout/fragment_monday" >
+        <action
+            android:id="@+id/action_mondayFragment_to_listWorkoutsFragment"
+            app:destination="@id/listWorkoutsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listWorkoutsFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.workouts.listOfWorkouts.ListWorkoutsFragment"
+        android:label="fragment_list_workouts"
+        tools:layout="@layout/fragment_list_workouts" />
 </navigation>

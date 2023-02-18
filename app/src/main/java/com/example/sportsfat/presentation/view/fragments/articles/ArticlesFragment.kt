@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportsfat.databinding.FragmentArticlesBinding
 import com.example.sportsfat.presentation.adapters.articles.ArticlesAdapter
-import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener
 import com.example.sportsfat.utils.BundleConstants.IMAGE_ARTICLES
 import com.example.sportsfat.utils.BundleConstants.NAME_ARTICLES
 import com.example.sportsfat.utils.BundleConstants.TEXT_ARTICLES
@@ -20,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
 @AndroidEntryPoint
-class ArticlesFragment : Fragment(), ArticlesListener {
+class ArticlesFragment : Fragment(), WorkoutListener {
 
     private val viewModel: ArticlesViewModel by viewModels()
 

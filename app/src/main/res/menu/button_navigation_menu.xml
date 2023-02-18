@@ -12,4 +12,10 @@
         android:title="@string/products"
         android:icon="@drawable/ic_search"
         />
+
+    <item
+        android:id="@+id/workoutsFragment"
+        android:title="@string/workouts"
+        android:icon="@drawable/ic_outline_accessibility_24"
+        />
 </menu>

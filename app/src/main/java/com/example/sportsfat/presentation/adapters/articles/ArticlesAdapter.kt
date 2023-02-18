@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsfat.databinding.ListArticlesBinding
 import com.example.sportsfat.domain.model.ArticlesModel
-import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener
 
 class ArticlesAdapter(
-    private val articlesListener: ArticlesListener
+    private val articlesListener: WorkoutListener
 ) : RecyclerView.Adapter<ArticlesViewHolder>() {
 
     private var listArticles = mutableListOf<ArticlesModel>()
