@@ -54,7 +54,10 @@ class MondayFragment : Fragment(), WorkoutListener {
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            viewModel.getDataArticles()
+        }
+
+        viewModel.msg.observe(viewLifecycleOwner){
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
 
         viewModel.nav.observe(viewLifecycleOwner) {
@@ -70,5 +73,10 @@ class MondayFragment : Fragment(), WorkoutListener {
 
     override fun onElementSelected(name: String) {
 
+    }
+
+    override fun deleteWorkout(name: String) {
+        viewModel.deleteMondayWorkout(name)
+        Toast.makeText(context, "Workout delete", Toast.LENGTH_SHORT).show()
     }
 }

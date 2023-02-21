@@ -3,4 +3,6 @@ package com.example.sportsfat.presentation.adapters.workouts.listWorkout.listene
 interface ListWorkoutListener {
 
     fun onElementSelected(name: String)
+
+    fun onAddClicked(name: String, isFavorite: Boolean)
 }

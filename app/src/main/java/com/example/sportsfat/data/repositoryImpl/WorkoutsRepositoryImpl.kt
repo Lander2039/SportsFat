@@ -2,7 +2,9 @@ package com.example.sportsfat.data.repositoryImpl
 
 import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
-import com.example.sportsfat.domain.model.WorkoutModel
+import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
+import com.example.sportsfat.domain.model.workout.WorkoutModel
+import com.example.sportsfat.domain.model.workout.mondayWorkout.MondayWorkoutModel
 import com.example.sportsfat.domain.workouts.WorkoutsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -25,7 +27,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 image = 10,
                 keyWorkout = 1,
                 approaches = 1,
-                repetitions = 1
+                repetitions = 1,
+                isFavorite = false
             ),
             WorkoutModel(
                 name = "Жим Лежа2",
@@ -35,7 +38,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 image = 5,
                 keyWorkout = 1,
                 approaches = 1,
-                repetitions = 1
+                repetitions = 1,
+                isFavorite = false
             ),
             WorkoutModel(
                 name = "Жим Лежа3",
@@ -45,7 +49,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 image = 9,
                 keyWorkout = 1,
                 approaches = 1,
-                repetitions = 1
+                repetitions = 1,
+                isFavorite = false
             ),
             WorkoutModel(
                 name = "Жим Лежа5",
@@ -55,7 +60,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 image = 4,
                 keyWorkout = 1,
                 approaches = 1,
-                repetitions = 1
+                repetitions = 1,
+                isFavorite = false
             ),
         )
         return listWorkout
@@ -97,6 +103,49 @@ class WorkoutsRepositoryImpl @Inject constructor(
                         it.image,
                         it.keyWorkout,
                         it.approaches,
+                        it.repetitions,
+                        isFavorite = false
+                    )
+                }
+            }
+        }
+    }
+
+    override suspend fun addMondayWorkouts(
+        workoutModel: WorkoutModel,
+        isFavorite: Boolean
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.insertMondayWorkoutsEntity(
+                MondayWorkoutsEntity(
+                    Random().nextInt(),
+                    workoutModel.name,
+                    workoutModel.description,
+                    workoutModel.implementationOptions,
+                    workoutModel.executionTechnique,
+                    workoutModel.image,
+                    workoutModel.keyWorkout,
+                    workoutModel.approaches,
+                    workoutModel.repetitions
+                )
+            )
+            DAO.addToWorkouts(workoutModel.name, isFavorite)
+        }
+    }
+
+    override suspend fun getMondayWorkouts(): Flow<List<MondayWorkoutModel>> {
+        return withContext(Dispatchers.IO) {
+            val mondayWorkoutsEntity = DAO.getMondayWorkoutsEntity()
+            mondayWorkoutsEntity.map { workoutsList ->
+                workoutsList.map {
+                    MondayWorkoutModel(
+                        it.name,
+                        it.description,
+                        it.implementationOptions,
+                        it.executionTechnique,
+                        it.image,
+                        it.keyWorkout,
+                        it.approaches,
                         it.repetitions
                     )
                 }
@@ -104,4 +153,26 @@ class WorkoutsRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun deleteWorkoutByName(name: String) {
+        withContext(Dispatchers.IO) {
+            DAO.deleteWorkoutEntityByName(name)
+        }
+    }
+
+    override suspend fun findWorkoutEntityByName(searchText: String): WorkoutModel {
+        return withContext(Dispatchers.IO) {
+            val workoutsEntity = DAO.findWorkoutEntityByName(searchText)
+            WorkoutModel(
+                workoutsEntity.name,
+                workoutsEntity.description,
+                workoutsEntity.implementationOptions,
+                workoutsEntity.executionTechnique,
+                workoutsEntity.image,
+                workoutsEntity.keyWorkout,
+                workoutsEntity.approaches,
+                workoutsEntity.repetitions,
+                isFavorite = false
+            )
+        }
+    }
 }

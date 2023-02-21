@@ -2,7 +2,7 @@ package com.example.sportsfat.presentation.adapters.workouts.mondayWorkout
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsfat.databinding.ListWorkoutBinding
-import com.example.sportsfat.domain.model.WorkoutModel
+import com.example.sportsfat.domain.model.workout.mondayWorkout.MondayWorkoutModel
 import com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.listener.WorkoutListener
 
 class WorkoutViewHolder(
@@ -12,13 +12,17 @@ class WorkoutViewHolder(
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
 
-    fun bind(workoutModel: WorkoutModel) {
-        viewBinding.tvNameWorkout.text = workoutModel.name
+    fun bind(mondayWorkoutModel: MondayWorkoutModel) {
+        viewBinding.tvNameWorkout.text = mondayWorkoutModel.name
 
         viewBinding.details.setOnClickListener {
             workoutListener.onElementSelected(
-                workoutModel.name
+                mondayWorkoutModel.name
             )
+        }
+
+        viewBinding.ibDeleteWorkout.setOnClickListener {
+            workoutListener.deleteWorkout(mondayWorkoutModel.name)
         }
     }
 }

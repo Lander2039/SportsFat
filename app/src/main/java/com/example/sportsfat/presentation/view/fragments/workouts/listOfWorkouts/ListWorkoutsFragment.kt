@@ -1,22 +1,17 @@
 package com.example.sportsfat.presentation.view.fragments.workouts.listOfWorkouts
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentListWorkoutsBinding
-import com.example.sportsfat.databinding.FragmentWorkoutsBinding
 import com.example.sportsfat.presentation.adapters.workouts.listWorkout.ListWorkoutAdapter
 import com.example.sportsfat.presentation.adapters.workouts.listWorkout.listener.ListWorkoutListener
-import com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.WorkoutAdapter
-import com.example.sportsfat.presentation.view.fragments.workouts.WorkoutsViewModel
-import com.example.sportsfat.utils.NavHelper.navigate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
@@ -54,9 +49,13 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
             changeWorkout = 9
             changeList(changeWorkout!!)
         }
+
+        viewModel.msg.observe(viewLifecycleOwner) {
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private fun changeList(changeList:Int){
+    private fun changeList(changeList: Int) {
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.items.catch {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
@@ -75,5 +74,9 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
 
     override fun onElementSelected(name: String) {
 
+    }
+
+    override fun onAddClicked(name: String, isFavorite: Boolean) {
+        viewModel.onAddClicked(name, isFavorite)
     }
 }

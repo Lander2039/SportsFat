@@ -1,11 +1,11 @@
-package com.example.sportsfat.data.database.entity.workouts.modayWorkouts
+package com.example.sportsfat.data.database.entity.workouts.mondayWorkouts
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity("MondayWorkouts")
-data class MondayWorkouts(
+@Entity("MondayWorkoutsEntity")
+data class MondayWorkoutsEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo("id")
     val id: Int,
@@ -24,5 +24,5 @@ data class MondayWorkouts(
     @ColumnInfo("approaches")
     val approaches: Int,
     @ColumnInfo("repetitions")
-    val repetitions: Int
+    val repetitions: Int,
 )

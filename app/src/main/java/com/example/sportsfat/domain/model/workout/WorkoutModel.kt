@@ -1,4 +1,4 @@
-package com.example.sportsfat.domain.model
+package com.example.sportsfat.domain.model.workout
 
 data class WorkoutModel(
     val name: String,
@@ -8,5 +8,6 @@ data class WorkoutModel(
     val image: Int,
     val keyWorkout: Int,
     val approaches: Int,
-    val repetitions: Int
+    val repetitions: Int,
+    val isFavorite: Boolean
     )

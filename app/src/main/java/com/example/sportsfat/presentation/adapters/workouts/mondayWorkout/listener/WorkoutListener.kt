@@ -3,4 +3,6 @@ package com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.liste
 interface WorkoutListener {
 
     fun onElementSelected(name: String)
+
+    fun deleteWorkout(name: String)
 }

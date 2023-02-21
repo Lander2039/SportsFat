@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsfat.databinding.ListWorkoutAddBinding
-import com.example.sportsfat.domain.model.WorkoutModel
+import com.example.sportsfat.domain.model.workout.WorkoutModel
 import com.example.sportsfat.presentation.adapters.workouts.listWorkout.listener.ListWorkoutListener
 
 class ListWorkoutAdapter(

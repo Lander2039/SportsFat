@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
+import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -38,12 +39,18 @@ interface DAO {
     @Query("SELECT (SELECT COUNT(*) FROM WorkoutEntity) != 0")
     fun doesWorkoutsEntityExist(): Boolean
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE) // игнорирование если они одинаковы
-    fun insertFavoritesEntity(favoritesEntity: FavoritesEntity)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertMondayWorkoutsEntity(mondayWorkoutsEntity: MondayWorkoutsEntity)
 
-    @Query("UPDATE ItemsEntity SET isFavorite = :isFavorite WHERE description = :description")
-    fun addToFavorite(description: String, isFavorite: Boolean)
+    @Query("UPDATE WorkoutEntity SET isFavorite = :isFavorite WHERE name = :name")
+    fun addToWorkouts(name: String, isFavorite: Boolean)
 
-    @Query("SELECT * FROM favoritesEntity")
-    fun getFavoritesEntity(): List<FavoritesEntity>
+    @Query("SELECT * FROM MondayWorkoutsEntity")
+    fun getMondayWorkoutsEntity(): Flow<List<MondayWorkoutsEntity>>
+
+    @Query("DELETE FROM MondayWorkoutsEntity WHERE name =:name")
+    fun deleteWorkoutEntityByName(name: String)
+
+    @Query("SELECT * FROM WorkoutEntity WHERE name = :searchText")
+    fun findWorkoutEntityByName(searchText: String): WorkoutEntity
 }
