@@ -5,19 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentListWorkoutsBinding
 import com.example.sportsfat.databinding.FragmentWorkoutsBinding
+import com.example.sportsfat.presentation.adapters.workouts.listWorkout.ListWorkoutAdapter
+import com.example.sportsfat.presentation.adapters.workouts.listWorkout.listener.ListWorkoutListener
+import com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.WorkoutAdapter
 import com.example.sportsfat.presentation.view.fragments.workouts.WorkoutsViewModel
+import com.example.sportsfat.utils.NavHelper.navigate
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.catch
 
-
-class ListWorkoutsFragment : Fragment() {
+@AndroidEntryPoint
+class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
 
     private val viewModel: ListWorkoutsViewModel by viewModels()
 
+    private lateinit var listWorkoutsAdapter: ListWorkoutAdapter
     private var _viewBinding: FragmentListWorkoutsBinding? = null
     private val viewBinding get() = _viewBinding!!
+    private var changeWorkout: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,5 +40,40 @@ class ListWorkoutsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        listWorkoutsAdapter = ListWorkoutAdapter(this)
+
+        viewBinding.resListWorkout.layoutManager = LinearLayoutManager(context)
+        viewBinding.resListWorkout.adapter = listWorkoutsAdapter
+
+        viewBinding.btnBackAndNeck.setOnClickListener {
+            changeWorkout = 10
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnButtocks.setOnClickListener {
+            changeWorkout = 9
+            changeList(changeWorkout!!)
+        }
+    }
+
+    private fun changeList(changeList:Int){
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            viewModel.items.catch {
+                Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }.collect { flowList ->
+                flowList.collect { list ->
+                    val listSorted = list.mapNotNull { if (it.image == changeList) it else null }
+                    listWorkoutsAdapter.submitList(listSorted)
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
+            viewModel.getDataArticles()
+        }
+    }
+
+    override fun onElementSelected(name: String) {
+
     }
 }

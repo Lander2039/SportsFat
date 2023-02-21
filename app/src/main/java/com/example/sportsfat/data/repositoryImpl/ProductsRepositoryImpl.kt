@@ -14,7 +14,7 @@ import javax.inject.Inject
 class ProductsRepositoryImpl @Inject constructor(
     private val DAO: DAO
 ) : ProductsRepository {
-    fun getProd(): List<ProductsModel> {
+    fun getProducts(): List<ProductsModel> {
         val listProducts = listOf<ProductsModel>(
             ProductsModel(
                 name = "Баклажаны",
@@ -2025,7 +2025,7 @@ class ProductsRepositoryImpl @Inject constructor(
     override suspend fun getData() {
         return withContext(Dispatchers.IO) {
 //            if (!DAO.doesArticlesEntityExist()) {
-            val response = getProd()
+            val response = getProducts()
             response.map { productsList ->
                 val productsEntity =
                     ProductsEntity(

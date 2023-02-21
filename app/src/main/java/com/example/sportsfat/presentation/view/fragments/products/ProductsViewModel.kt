@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.domain.model.ProductsModel
 import com.example.sportsfat.domain.products.ProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

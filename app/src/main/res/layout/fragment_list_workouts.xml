@@ -6,8 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.fragments.workouts.listOfWorkouts.ListWorkoutsFragment">
 
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@+id/res_list_workout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_backAndNeck"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Back and neck"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_buttocks"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="buttocks"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_press"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Press"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_shoulders"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Shoulders"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_hands"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Hands"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_breast"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Breast"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_legs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Legs"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored">
+            </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/res_list_workout"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
@@ -15,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/list_workout" />
+        tools:listitem="@layout/list_workout_add" />
 
 
 

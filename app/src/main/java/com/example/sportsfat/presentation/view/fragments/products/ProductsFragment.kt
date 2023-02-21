@@ -19,7 +19,6 @@ class ProductsFragment : Fragment(), ProductsListener {
     private var _viewBinding: FragmentProductsBinding? = null
     private val viewBinding get() = _viewBinding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

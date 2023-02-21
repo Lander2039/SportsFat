@@ -2,9 +2,11 @@ package com.example.sportsfat.di
 
 import com.example.sportsfat.data.repositoryImpl.ArticlesRepositoryImpl
 import com.example.sportsfat.data.repositoryImpl.ProductsRepositoryImpl
+import com.example.sportsfat.data.repositoryImpl.WorkoutsRepositoryImpl
 import com.example.sportsfat.data.service.ApiService
 import com.example.sportsfat.domain.articles.ArticlesRepository
 import com.example.sportsfat.domain.products.ProductsRepository
+import com.example.sportsfat.domain.workouts.WorkoutsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -26,6 +28,11 @@ abstract class DataModule {
     abstract fun bindProductsRepository(
         productsRepositoryImpl: ProductsRepositoryImpl
     ): ProductsRepository
+
+    @Binds
+    abstract fun bindWorkoutsRepository(
+        workoutsRepositoryImpl: WorkoutsRepositoryImpl
+    ): WorkoutsRepository
 
     companion object {
         private const val BASE_URL = "https://api.jsonserve.com"

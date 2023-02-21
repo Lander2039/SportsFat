@@ -80,16 +80,19 @@
         android:alpha="0.7"
         android:text="Saturday"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_friday" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_friday"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_sunday"
         android:layout_width="288dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="232dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="248dp"
         android:alpha="0.7"
         android:text="Sunday"
         android:textSize="25sp"

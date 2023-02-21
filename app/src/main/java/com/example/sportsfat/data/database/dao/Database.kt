@@ -5,8 +5,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
+import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 
-@androidx.room.Database(entities = [ArticlesEntity::class, ProductsEntity::class], version = 1, exportSchema = false)
+@androidx.room.Database(entities = [ArticlesEntity::class, ProductsEntity::class, WorkoutEntity::class], version = 1, exportSchema = false)
 abstract class Database : RoomDatabase() {
 
     abstract fun getItemsDAO(): DAO
