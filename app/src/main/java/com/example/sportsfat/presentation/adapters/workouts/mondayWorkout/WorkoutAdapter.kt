@@ -27,10 +27,12 @@ class WorkoutAdapter(
         val viewBinding =
             ListWorkoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WorkoutViewHolder(viewBinding, workoutListener)
+
     }
 
     override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
         holder.bind(listMondayWorkouts[position])
+
     }
 
     override fun getItemCount(): Int {

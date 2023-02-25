@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_nameWorkout"
@@ -41,17 +42,16 @@
             app:layout_constraintVertical_bias="0.422"
             />
 
-        <Spinner
-            android:id="@+id/sp_approaches"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:entries="@array/spinner_approaches"
-            android:textAlignment="center"
+        <EditText
+            android:id="@+id/et_approaches"
+            android:layout_width="80dp"
+            android:layout_height="34dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintStart_toEndOf="@+id/tv_numberApproaches"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.424" />
+            app:layout_constraintVertical_bias="0.456" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_numberrepetitions"
@@ -65,6 +65,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.696" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text=""
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.496" />
 
         <Spinner
             android:id="@+id/sp_repetitions"
@@ -83,12 +96,9 @@
             android:id="@+id/details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="96dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/sp_approaches"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.087"
             app:srcCompat="@drawable/ic_baseline_question_mark_24" />

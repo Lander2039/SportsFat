@@ -7,6 +7,6 @@ data class MondayWorkoutModel(
     val executionTechnique: String,
     val image: Int,
     val keyWorkout: Int,
-    val approaches: Int,
-    val repetitions: Int,
+    val approaches: String,
+    val repetitions: String,
 )

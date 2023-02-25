@@ -22,7 +22,7 @@ data class MondayWorkoutsEntity(
     @ColumnInfo("keyWorkout")
     val keyWorkout: Int,
     @ColumnInfo("approaches")
-    val approaches: Int,
+    val approaches: String,
     @ColumnInfo("repetitions")
-    val repetitions: Int,
+    val repetitions: String,
 )

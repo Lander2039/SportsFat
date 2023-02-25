@@ -35,16 +35,28 @@
     </fragment>
     <fragment
         android:id="@+id/mondayFragment"
-        android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.MondayFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.monday.MondayFragment"
         android:label="fragment_monday"
         tools:layout="@layout/fragment_monday" >
         <action
             android:id="@+id/action_mondayFragment_to_listWorkoutsFragment"
             app:destination="@id/listWorkoutsFragment" />
+        <action
+            android:id="@+id/action_mondayFragment_to_detailsWorkoutFragment"
+            app:destination="@id/detailsWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/listWorkoutsFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.workouts.listOfWorkouts.ListWorkoutsFragment"
         android:label="fragment_list_workouts"
-        tools:layout="@layout/fragment_list_workouts" />
+        tools:layout="@layout/fragment_list_workouts" >
+        <action
+            android:id="@+id/action_listWorkoutsFragment_to_detailsWorkoutFragment"
+            app:destination="@id/detailsWorkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsWorkoutFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.monday.detailWorkouts.DetailsWorkoutFragment"
+        android:label="fragment_details_workout"
+        tools:layout="@layout/fragment_details_workout" />
 </navigation>

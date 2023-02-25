@@ -17,8 +17,8 @@ class MondayViewModel @Inject constructor(private val workoutsInteractor: Workou
 
     val items = flow { emit(workoutsInteractor.getMondayWorkouts()) }
 
-//    private val _bundle = MutableLiveData<NavigateWithBundle?>()
-//    val bundle: LiveData<NavigateWithBundle?> = _bundle
+    private val _bundle = MutableLiveData<NavigateWithBundle?>()
+    val bundle: LiveData<NavigateWithBundle?> = _bundle
 
     private val _nav = MutableLiveData<Int?>()
     val nav: LiveData<Int?> = _nav
@@ -41,16 +41,34 @@ class MondayViewModel @Inject constructor(private val workoutsInteractor: Workou
         }
     }
 
-//    fun elementClicked(articlesName: String, imageArticles: String, articlesText: String) {
-//        _bundle.value = NavigateWithBundle(
-//            articlesName,
-//            imageArticles,
-//            articlesText,
-//            destinationId = R.id.action_articlesFragment_to_detailsArticlesFragment
-//        )
-//    }
-//
-//    fun userNavigated() {
-//        _bundle.value = null
-//    }
+    fun addApproaches(name: String, approaches: String){
+        viewModelScope.launch {
+            workoutsInteractor.saveApproaches(name,approaches)
+            _msg.value = R.string.workoutDelete
+        }
+    }
+
+    fun elementClicked(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
+        _bundle.value = NavigateWithBundle(
+            name,
+            description,
+            implementationOptions,
+            executionTechnique,
+            image,
+            destinationId = R.id.action_mondayFragment_to_detailsWorkoutFragment
+        )
+    }
+
+    fun userNavigated() {
+        _bundle.value = null
+    }
 }
+
+data class NavigateWithBundle(
+    val name: String,
+    val description: String,
+    val implementationOptions: String,
+    val executionTechnique: String,
+    val image: Int,
+    val destinationId: Int
+)

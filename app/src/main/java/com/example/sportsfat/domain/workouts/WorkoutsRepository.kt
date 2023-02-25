@@ -20,4 +20,6 @@ interface WorkoutsRepository {
     suspend fun deleteWorkoutByName(name: String)
 
     suspend fun findWorkoutEntityByName(searchText: String): WorkoutModel
+
+    suspend fun saveApproaches(name: String, approaches:String)
 }

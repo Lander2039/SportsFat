@@ -1,4 +1,4 @@
-package com.example.sportsfat.presentation.view.fragments.workouts.trainingDay
+package com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.monday
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportsfat.databinding.FragmentMondayBinding
 import com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.WorkoutAdapter
 import com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.listener.WorkoutListener
+import com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.MondayViewModel
+import com.example.sportsfat.utils.BundleConstants
 import com.example.sportsfat.utils.NavHelper.navigate
+import com.example.sportsfat.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
@@ -42,7 +45,6 @@ class MondayFragment : Fragment(), WorkoutListener {
         viewBinding.resWorkout.adapter = workoutAdapter
 
 
-
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.items.catch {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
@@ -69,14 +71,33 @@ class MondayFragment : Fragment(), WorkoutListener {
             viewModel.openListWorkouts()
             viewModel.finishPerformed()
         }
+        viewModel.bundle.observe(viewLifecycleOwner) { navBundle ->
+            if (navBundle != null) {
+                val bundle = Bundle()
+                bundle.putString(BundleConstants.NAME_WORKOUT, navBundle.name)
+                bundle.putString(BundleConstants.DESCRIPTION_WORKOUT, navBundle.description)
+                bundle.putString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT, navBundle.implementationOptions)
+                bundle.putString(BundleConstants.EXECUTION_TECHNIQUE_WORKOUT, navBundle.executionTechnique)
+                bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
+
+                navigateWithBundle(
+                    navBundle.destinationId, bundle
+                )
+                viewModel.userNavigated()
+            }
+        }
     }
 
-    override fun onElementSelected(name: String) {
-
+    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
+        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image)
     }
 
     override fun deleteWorkout(name: String) {
         viewModel.deleteMondayWorkout(name)
-        Toast.makeText(context, "Workout delete", Toast.LENGTH_SHORT).show()
     }
+
+    override fun addApproachesAndRepetitions(name: String, approaches: String) {
+        viewModel.addApproaches(name,approaches)
+    }
+
 }

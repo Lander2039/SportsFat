@@ -53,4 +53,7 @@ interface DAO {
 
     @Query("SELECT * FROM WorkoutEntity WHERE name = :searchText")
     fun findWorkoutEntityByName(searchText: String): WorkoutEntity
+
+    @Query("UPDATE MondayWorkoutsEntity SET approaches =:approaches WHERE name =:name")
+    fun saveApproaches(name: String, approaches: String)
 }

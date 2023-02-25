@@ -22,9 +22,9 @@ data class WorkoutEntity(
     @ColumnInfo("keyWorkout")
     val keyWorkout: Int,
     @ColumnInfo("approaches")
-    val approaches: Int,
+    val approaches: String,
     @ColumnInfo("repetitions")
-    val repetitions: Int,
+    val repetitions: String,
     @ColumnInfo("isFavorite")
     val isFavorite: Boolean?=false
 )

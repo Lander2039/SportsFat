@@ -1,5 +1,6 @@
 package com.example.sportsfat.data.repositoryImpl
 
+import com.example.sportsfat.R
 import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
@@ -24,10 +25,10 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 description = "Жим лёжа — базовое физическое упражнение со свободным весом. Выполняющий упражнение ложится на скамейку, опускает гриф до касания с грудью и поднимает до полного выпрямления в локтевом суставе. Используется в бодибилдинге как упражнение для развития больших и малых грудных мышц, трицепсов и переднего пучка дельтовидной мышцы.",
                 implementationOptions = "",
                 executionTechnique = "2",
-                image = 10,
+                image = R.drawable.ic__article,
                 keyWorkout = 1,
-                approaches = 1,
-                repetitions = 1,
+                approaches = "1",
+                repetitions = "1",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -37,8 +38,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 executionTechnique = "33",
                 image = 5,
                 keyWorkout = 1,
-                approaches = 1,
-                repetitions = 1,
+                approaches = "1",
+                repetitions = "1",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -48,8 +49,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 executionTechnique = "44",
                 image = 9,
                 keyWorkout = 1,
-                approaches = 1,
-                repetitions = 1,
+                approaches = "1",
+                repetitions = "1",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -59,8 +60,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 executionTechnique = "55",
                 image = 4,
                 keyWorkout = 1,
-                approaches = 1,
-                repetitions = 1,
+                approaches = "1",
+                repetitions = "1",
                 isFavorite = false
             ),
         )
@@ -173,6 +174,12 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 workoutsEntity.repetitions,
                 isFavorite = false
             )
+        }
+    }
+
+    override suspend fun saveApproaches(name: String, approaches: String) {
+        return withContext(Dispatchers.IO) {
+            DAO.saveApproaches(name,approaches)
         }
     }
 }
