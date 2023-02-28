@@ -84,4 +84,3 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController.removeOnDestinationChangedListener(this)
     }
 }
-

@@ -28,8 +28,8 @@ class WorkoutsInteractor @Inject constructor(private val workoutsRepository: Wor
         workoutsRepository.deleteWorkoutByName(name)
     }
 
-    suspend fun saveApproaches(name: String, approaches:String){
-        workoutsRepository.saveApproaches(name, approaches)
+    suspend fun saveApproaches(name: String, approaches:String, repetitions: String, weight: String){
+        workoutsRepository.saveApproaches(name, approaches, repetitions, weight)
     }
 
 }

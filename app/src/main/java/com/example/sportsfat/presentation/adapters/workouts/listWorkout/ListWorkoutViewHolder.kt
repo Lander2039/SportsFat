@@ -17,7 +17,11 @@ class ListWorkoutViewHolder(
 
         viewBinding.ivDetailsWorkout.setOnClickListener {
             listWorkoutListener.onElementSelected(
-                workoutModel.name
+                workoutModel.name,
+                workoutModel.description,
+                workoutModel.implementationOptions,
+                workoutModel.executionTechnique,
+                workoutModel.image
             )
 
             listWorkoutListener.onAddClicked(workoutModel.name, it.isSelected)

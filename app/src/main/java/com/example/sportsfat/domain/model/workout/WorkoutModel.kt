@@ -9,5 +9,6 @@ data class WorkoutModel(
     val keyWorkout: Int,
     val approaches: String,
     val repetitions: String,
+    val weight : String,
     val isFavorite: Boolean
     )

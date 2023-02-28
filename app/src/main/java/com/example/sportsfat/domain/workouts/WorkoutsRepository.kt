@@ -21,5 +21,5 @@ interface WorkoutsRepository {
 
     suspend fun findWorkoutEntityByName(searchText: String): WorkoutModel
 
-    suspend fun saveApproaches(name: String, approaches:String)
+    suspend fun saveApproaches(name: String, approaches:String, repetitions: String, weight: String)
 }

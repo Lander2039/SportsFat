@@ -17,13 +17,6 @@ class ListWorkoutsViewModel  @Inject constructor(private val workoutsInteractor:
 
     val items = flow { emit(workoutsInteractor.showData()) }
 
-//    private val _bundle = MutableLiveData<NavigateWithBundle?>()
-//    val bundle: LiveData<NavigateWithBundle?> = _bundle
-
-    suspend fun getDataArticles(){
-        workoutsInteractor.getData()
-    }
-
     private val _nav = MutableLiveData<Int?>()
     val nav: LiveData<Int?> = _nav
 
@@ -33,12 +26,11 @@ class ListWorkoutsViewModel  @Inject constructor(private val workoutsInteractor:
     private val _msg = MutableLiveData<Int>()
     val msg: LiveData<Int> = _msg
 
-    fun openListWorkouts(){
-        _nav.value = R.id.action_mondayFragment_to_listWorkoutsFragment
-    }
+    private val _bundle = MutableLiveData<NavigateWithBundle?>()
+    val bundle: LiveData<NavigateWithBundle?> = _bundle
 
-    fun finishPerformed(){
-        _nav.value = null
+    suspend fun getDataArticles(){
+        workoutsInteractor.getData()
     }
 
     fun onAddClicked(name: String, isFavorite: Boolean) {
@@ -48,16 +40,27 @@ class ListWorkoutsViewModel  @Inject constructor(private val workoutsInteractor:
         }
     }
 
-//    fun elementClicked(articlesName: String, imageArticles: String, articlesText: String) {
-//        _bundle.value = NavigateWithBundle(
-//            articlesName,
-//            imageArticles,
-//            articlesText,
-//            destinationId = R.id.action_articlesFragment_to_detailsArticlesFragment
-//        )
-//    }
-//
-//    fun userNavigated() {
-//        _bundle.value = null
-//    }
+    fun elementClicked(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
+        _bundle.value = NavigateWithBundle(
+            name,
+            description,
+            implementationOptions,
+            executionTechnique,
+            image,
+            destinationId = R.id.action_listWorkoutsFragment_to_detailsWorkoutFragment,
+        )
+    }
+
+    fun userNavigated() {
+        _bundle.value = null
+    }
+
+    data class NavigateWithBundle(
+        val name: String,
+        val description: String,
+        val implementationOptions: String,
+        val executionTechnique: String,
+        val image: Int,
+        val destinationId: Int,
+    )
 }

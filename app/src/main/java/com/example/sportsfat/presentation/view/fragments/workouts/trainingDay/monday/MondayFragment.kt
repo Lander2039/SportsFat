@@ -79,7 +79,8 @@ class MondayFragment : Fragment(), WorkoutListener {
                 bundle.putString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT, navBundle.implementationOptions)
                 bundle.putString(BundleConstants.EXECUTION_TECHNIQUE_WORKOUT, navBundle.executionTechnique)
                 bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
-
+                bundle.putString(BundleConstants.APPROACHES_WORKOUT, navBundle.approaches)
+                bundle.putString(BundleConstants.REPETITIONS_WORKOUT, navBundle.repetitions)
                 navigateWithBundle(
                     navBundle.destinationId, bundle
                 )
@@ -88,8 +89,8 @@ class MondayFragment : Fragment(), WorkoutListener {
         }
     }
 
-    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
-        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image)
+    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String) {
+        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image, approaches, repetitions)
     }
 
     override fun deleteWorkout(name: String) {
@@ -97,7 +98,7 @@ class MondayFragment : Fragment(), WorkoutListener {
     }
 
     override fun addApproachesAndRepetitions(name: String, approaches: String) {
-        viewModel.addApproaches(name,approaches)
+
     }
 
 }

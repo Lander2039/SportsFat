@@ -43,6 +43,5 @@ class DetailsArticlesFragment : Fragment() {
             Picasso.get().load(Uri.parse(image)).into(viewBinding.ivImageArticles)
             viewBinding.tvTextArticles.text = textArticles
         }
-
     }
 }

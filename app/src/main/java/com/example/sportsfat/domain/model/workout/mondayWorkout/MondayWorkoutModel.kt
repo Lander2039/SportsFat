@@ -9,4 +9,5 @@ data class MondayWorkoutModel(
     val keyWorkout: Int,
     val approaches: String,
     val repetitions: String,
+    val weight: String
 )

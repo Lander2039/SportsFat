@@ -12,85 +12,201 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_imageWorkout"
-            android:layout_width="398dp"
-            android:layout_height="341dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/tv_nameWorkout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_nameWorkout"
-            android:layout_width="392dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="22dp"
-            android:text="test"
+            android:layout_marginBottom="51dp"
+            android:text="Name"
             android:textAlignment="center"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_textDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_imageWorkout" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_textDescription"
-            android:layout_width="384dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="22dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="39dp"
-            android:text="sdsdsdsd"
             android:textAlignment="center"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_textImplementationOptions"
+            app:layout_constraintBottom_toTopOf="@+id/btn_features"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nameWorkout" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_description"
+            android:visibility="invisible"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_textImplementationOptions"
-            android:layout_width="384dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
-            android:text="sdsdsdsd"
             android:textAlignment="center"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_textExecutionTechnique"
+            app:layout_constraintBottom_toTopOf="@+id/btn_technique"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_textDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_features"
+            android:visibility="invisible"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_textExecutionTechnique"
-            android:layout_width="384dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="sdsdsdsd"
             android:textAlignment="center"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_technique"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/btn_description"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:text="@string/description"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_textDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nameWorkout" />
+
+        <Button
+            android:id="@+id/btn_features"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:text="@string/features"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_textImplementationOptions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_textDescription" />
+
+        <Button
+            android:id="@+id/btn_technique"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:text="@string/technique"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_textExecutionTechnique"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_textImplementationOptions" />
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="50dp"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_textExecutionTechnique">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/editing_the_number_of_repetitions_and_approaches"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="@string/enter_the_number_of_approaches">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTextApproaches"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:inputType="number"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="@string/enter_the_number_of_repetitions">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTextRepetitions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="@string/enter_the_number_of_operating_weight">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTextOperatingWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/save">
+                </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

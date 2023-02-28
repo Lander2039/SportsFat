@@ -25,4 +25,6 @@ data class MondayWorkoutsEntity(
     val approaches: String,
     @ColumnInfo("repetitions")
     val repetitions: String,
+    @ColumnInfo("weight")
+    val weight: String
 )

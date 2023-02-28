@@ -41,21 +41,16 @@ class MondayViewModel @Inject constructor(private val workoutsInteractor: Workou
         }
     }
 
-    fun addApproaches(name: String, approaches: String){
-        viewModelScope.launch {
-            workoutsInteractor.saveApproaches(name,approaches)
-            _msg.value = R.string.workoutDelete
-        }
-    }
-
-    fun elementClicked(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
+    fun elementClicked(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String) {
         _bundle.value = NavigateWithBundle(
             name,
             description,
             implementationOptions,
             executionTechnique,
             image,
-            destinationId = R.id.action_mondayFragment_to_detailsWorkoutFragment
+            approaches,
+            repetitions,
+            destinationId = R.id.action_mondayFragment_to_detailsWorkoutFragment,
         )
     }
 
@@ -70,5 +65,7 @@ data class NavigateWithBundle(
     val implementationOptions: String,
     val executionTechnique: String,
     val image: Int,
-    val destinationId: Int
+    val approaches: String,
+    val repetitions: String,
+    val destinationId: Int,
 )

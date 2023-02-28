@@ -2,7 +2,7 @@ package com.example.sportsfat.presentation.adapters.workouts.mondayWorkout.liste
 
 interface WorkoutListener {
 
-    fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int)
+    fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String)
 
     fun deleteWorkout(name: String)
 

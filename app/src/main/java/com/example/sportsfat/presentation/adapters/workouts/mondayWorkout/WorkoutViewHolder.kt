@@ -13,6 +13,9 @@ class WorkoutViewHolder(
 
     fun bind(mondayWorkoutModel: MondayWorkoutModel) {
         viewBinding.tvNameWorkout.text = mondayWorkoutModel.name
+        viewBinding.tvNumberApproaches.text = mondayWorkoutModel.approaches
+        viewBinding.tvNumberRepetitions.text = mondayWorkoutModel.repetitions
+        viewBinding.tvNumberWeight.text = mondayWorkoutModel.weight
 
         viewBinding.details.setOnClickListener {
             workoutListener.onElementSelected(
@@ -20,7 +23,9 @@ class WorkoutViewHolder(
                 mondayWorkoutModel.description,
                 mondayWorkoutModel.implementationOptions,
                 mondayWorkoutModel.executionTechnique,
-                mondayWorkoutModel.image
+                mondayWorkoutModel.image,
+                mondayWorkoutModel.approaches,
+                mondayWorkoutModel.repetitions
             )
         }
 
@@ -28,10 +33,5 @@ class WorkoutViewHolder(
             workoutListener.deleteWorkout(mondayWorkoutModel.name)
         }
 
-//        viewBinding.details.setOnClickListener {
-//            val et = viewBinding.etApproaches.text.toString()
-//            workoutListener.addApproachesAndRepetitions(mondayWorkoutModel.name, et)
-//            viewBinding.tvText.text = et.toString()
-//        }
     }
 }

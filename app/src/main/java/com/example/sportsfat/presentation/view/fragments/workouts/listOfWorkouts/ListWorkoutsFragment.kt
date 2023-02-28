@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportsfat.databinding.FragmentListWorkoutsBinding
 import com.example.sportsfat.presentation.adapters.workouts.listWorkout.ListWorkoutAdapter
 import com.example.sportsfat.presentation.adapters.workouts.listWorkout.listener.ListWorkoutListener
+import com.example.sportsfat.utils.BundleConstants
+import com.example.sportsfat.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
@@ -42,16 +44,51 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
         viewBinding.resListWorkout.adapter = listWorkoutsAdapter
 
         viewBinding.btnBackAndNeck.setOnClickListener {
-            changeWorkout = 10
+            changeWorkout = 1
             changeList(changeWorkout!!)
         }
         viewBinding.btnButtocks.setOnClickListener {
-            changeWorkout = 9
+            changeWorkout = 4
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnPress.setOnClickListener {
+            changeWorkout = 5
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnShoulders.setOnClickListener {
+            changeWorkout = 6
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnHands.setOnClickListener {
+            changeWorkout = 7
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnBreast.setOnClickListener {
+            changeWorkout = 1
+            changeList(changeWorkout!!)
+        }
+        viewBinding.btnLegs.setOnClickListener {
+            changeWorkout = 3
             changeList(changeWorkout!!)
         }
 
         viewModel.msg.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.bundle.observe(viewLifecycleOwner) { navBundle ->
+            if (navBundle != null) {
+                val bundle = Bundle()
+                bundle.putString(BundleConstants.NAME_WORKOUT, navBundle.name)
+                bundle.putString(BundleConstants.DESCRIPTION_WORKOUT, navBundle.description)
+                bundle.putString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT, navBundle.implementationOptions)
+                bundle.putString(BundleConstants.EXECUTION_TECHNIQUE_WORKOUT, navBundle.executionTechnique)
+                bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
+                navigateWithBundle(
+                    navBundle.destinationId, bundle
+                )
+                viewModel.userNavigated()
+            }
         }
     }
 
@@ -61,7 +98,7 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
             }.collect { flowList ->
                 flowList.collect { list ->
-                    val listSorted = list.mapNotNull { if (it.image == changeList) it else null }
+                    val listSorted = list.mapNotNull { if (it.keyWorkout == changeList) it else null }
                     listWorkoutsAdapter.submitList(listSorted)
                 }
             }
@@ -72,8 +109,8 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
         }
     }
 
-    override fun onElementSelected(name: String) {
-
+    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
+        viewModel.elementClicked(name,description,implementationOptions,executionTechnique,image)
     }
 
     override fun onAddClicked(name: String, isFavorite: Boolean) {

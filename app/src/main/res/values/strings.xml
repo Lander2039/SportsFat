@@ -14,7 +14,17 @@
     <string name="products">Products</string>
     <string name="workouts">Workouts</string>
     <string name="workoutDelete">Workout delete</string>
+    <string name="Saved">Saved</string>
     <string name="WorkoutAdd">Workout added</string>
+    <string name="description">Description</string>
+    <string name="features">Features</string>
+    <string name="technique">Technique</string>
+    <string name="editing_the_number_of_repetitions_and_approaches">Editing the number of repetitions and approaches</string>
+    <string name="enter_the_number_of_approaches">Enter the number of approaches</string>
+    <string name="enter_the_number_of_repetitions">Enter the number of repetitions</string>
+    <string name="save">Save</string>
+    <string name="enter_the_number_of_operating_weight">Enter the number of operating weight</string>
+    <string name="weight">Weight:</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

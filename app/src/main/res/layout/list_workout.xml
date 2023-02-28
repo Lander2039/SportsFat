@@ -18,18 +18,22 @@
             android:id="@+id/tv_nameWorkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
             android:text="sdsssssssssssssssssss"
             android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.163"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
-
+            app:layout_constraintVertical_bias="0.137" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_numberApproaches"
+            android:id="@+id/materialTextView"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:text="Approaches:"
@@ -39,22 +43,53 @@
             app:layout_constraintHorizontal_bias="0.058"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422"
-            />
-
-        <EditText
-            android:id="@+id/et_approaches"
-            android:layout_width="80dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.104"
-            app:layout_constraintStart_toEndOf="@+id/tv_numberApproaches"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.456" />
+            app:layout_constraintVertical_bias="0.624" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_numberrepetitions"
+            android:id="@+id/materialTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="@string/weight"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.872" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_numberApproaches"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:text=""
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/materialTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.624" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_numberWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:text=""
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/materialTextView3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.872" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView2"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:text="Repetitions:"
@@ -64,43 +99,34 @@
             app:layout_constraintHorizontal_bias="0.083"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.696" />
+            app:layout_constraintVertical_bias="0.864" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_text"
+            android:id="@+id/tv_numberRepetitions"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
+            android:layout_marginStart="16dp"
             android:text=""
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.69"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/materialTextView2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.496" />
-
-        <Spinner
-            android:id="@+id/sp_repetitions"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:entries="@array/spinner_repetitions"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.696" />
+            app:layout_constraintVertical_bias="0.864" />
 
         <ImageView
             android:id="@+id/details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_nameWorkout"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.087"
+            app:layout_constraintVertical_bias="0.166"
             app:srcCompat="@drawable/ic_baseline_question_mark_24" />
 
         <ImageButton
@@ -109,7 +135,7 @@
             android:layout_width="61dp"
             android:layout_height="41dp"
             android:layout_marginTop="92dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
