@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         viewBinding.buttonNavigation.setupWithNavController(navController)
 
         val btnNav = AppBarConfiguration(
-            setOf(R.id.articlesFragment, R.id.onBoardingFragment)
+            setOf(R.id.userFragment, R.id.onBoardingFragment)
         )
 
         NavigationUI.setupActionBarWithNavController(this, navController, btnNav)
@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         )
         val random = (1..2).random()
         if (random == 1) {
-            navGraph.startDestination = R.id.articlesFragment
+            navGraph.startDestination = R.id.userFragment
         } else {
-            navGraph.startDestination = R.id.articlesFragment
+            navGraph.startDestination = R.id.userFragment
         }
         return navGraph
     }

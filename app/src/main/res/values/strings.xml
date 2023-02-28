@@ -25,6 +25,7 @@
     <string name="save">Save</string>
     <string name="enter_the_number_of_operating_weight">Enter the number of operating weight</string>
     <string name="weight">Weight:</string>
+    <string name="user">User</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

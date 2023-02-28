@@ -59,4 +59,13 @@
         android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.monday.detailWorkouts.DetailsWorkoutFragment"
         android:label="fragment_details_workout"
         tools:layout="@layout/fragment_details_workout" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.user.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_detailsArticlesFragment"
+            app:destination="@id/detailsArticlesFragment" />
+    </fragment>
 </navigation>
