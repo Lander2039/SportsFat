@@ -17,6 +17,7 @@ import com.example.sportsfat.presentation.adapters.articles.UserArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener
 import com.example.sportsfat.presentation.view.fragments.products.ProductsViewModel
 import com.example.sportsfat.utils.BundleConstants
+import com.example.sportsfat.utils.NavHelper.navigate
 import com.example.sportsfat.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
@@ -72,6 +73,16 @@ class UserFragment : Fragment(), ArticlesListener {
                 )
                 viewModel.userNavigated()
             }
+        }
+
+        viewModel.nav.observe(viewLifecycleOwner) {
+            if (it != null) {
+                navigate(it)
+            }
+        }
+        viewBinding.iwEditUser.setOnClickListener {
+            viewModel.openMonday()
+            viewModel.finishPerformed()
         }
     }
 

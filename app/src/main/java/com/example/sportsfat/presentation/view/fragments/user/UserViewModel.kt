@@ -18,6 +18,9 @@ class UserViewModel@Inject constructor(private val articlesInteractor: ArticlesI
     private val _bundle = MutableLiveData<NavigateWithBundle?>()
     val bundle: LiveData<NavigateWithBundle?> = _bundle
 
+    private val _nav = MutableLiveData<Int?>()
+    val nav: LiveData<Int?> = _nav
+
     suspend fun getDataArticles(){
         articlesInteractor.getData()
     }
@@ -33,6 +36,14 @@ class UserViewModel@Inject constructor(private val articlesInteractor: ArticlesI
 
     fun userNavigated() {
         _bundle.value = null
+    }
+
+    fun openMonday(){
+        _nav.value = R.id.action_userFragment_to_userDataFragment
+    }
+
+    fun finishPerformed(){
+        _nav.value = null
     }
 }
 
