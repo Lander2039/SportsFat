@@ -75,5 +75,9 @@
         android:id="@+id/userDataFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.user.dataUser.UserDataFragment"
         android:label="fragment_user_data"
-        tools:layout="@layout/fragment_user_data" />
+        tools:layout="@layout/fragment_user_data" >
+        <action
+            android:id="@+id/action_userDataFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
 </navigation>

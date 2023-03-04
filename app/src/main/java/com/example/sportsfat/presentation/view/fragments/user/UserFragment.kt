@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentProductsBinding
 import com.example.sportsfat.databinding.FragmentUserBinding
+import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.presentation.adapters.articles.ArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.UserArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener

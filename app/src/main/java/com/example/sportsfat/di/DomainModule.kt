@@ -4,6 +4,8 @@ import com.example.sportsfat.domain.articles.ArticlesInteractor
 import com.example.sportsfat.domain.articles.ArticlesRepository
 import com.example.sportsfat.domain.products.ProductsInteractor
 import com.example.sportsfat.domain.products.ProductsRepository
+import com.example.sportsfat.domain.user.UserInteractor
+import com.example.sportsfat.domain.user.UserRepository
 import com.example.sportsfat.domain.workouts.WorkoutsInteractor
 import com.example.sportsfat.domain.workouts.WorkoutsRepository
 import dagger.Module
@@ -29,5 +31,8 @@ class DomainModule {
         return WorkoutsInteractor(workoutsRepository)
     }
 
-
+    @Provides
+    fun provideUserInteractor(userRepository: UserRepository): UserInteractor {
+        return UserInteractor(userRepository)
+    }
 }

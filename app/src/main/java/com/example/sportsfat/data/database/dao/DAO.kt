@@ -6,8 +6,10 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
+import com.example.sportsfat.data.database.entity.UserEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
+import com.example.sportsfat.domain.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -56,4 +58,17 @@ interface DAO {
 
     @Query("UPDATE MondayWorkoutsEntity SET approaches =:approaches, repetitions =:repetitions, weight =:weight   WHERE name =:name")
     fun saveApproaches(name: String, approaches: String, repetitions: String, weight: String)
+
+    @Insert
+    fun insertUserEntity(userEntity: UserEntity)
+
+    @Query("SELECT * From UserEntity")
+    fun getUserEntities(): UserModel
+
+    @Query("UPDATE UserEntity SET name =:name, age =:age, height =:height, weightStart =:weightStart, activityFactor =:activityFactor, bmi =:bmi WHERE name =:name")
+    fun updateUserDate(name: String, age: Int, height: Double, weightStart: Int, activityFactor: Double,bmi: Int)
+
+    @Query("UPDATE UserEntity SET name =:name, weightToday =:weightToday WHERE name =:name")
+    fun updateUserDateToday(name: String, weightToday: Int)
+
 }

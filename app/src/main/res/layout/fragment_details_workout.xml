@@ -163,6 +163,7 @@
                         android:backgroundTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck"
                         android:inputType="number"
+                        android:maxLines="1"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,7 +180,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:maxLines="1"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -195,7 +197,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:maxLines="1"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton

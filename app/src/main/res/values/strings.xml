@@ -29,6 +29,7 @@
     <string name="my_results">My results</string>
     <string name="before">Before:</string>
     <string name="after">After:</string>
+    <string name="HeightCannotBeZero">Height cannot be zero</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>
