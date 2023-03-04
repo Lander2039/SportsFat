@@ -12,7 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserDataViewModel @Inject constructor(private val userInteractor: UserInteractor):ViewModel() {
+class UserDataViewModel @Inject constructor(private val userInteractor: UserInteractor) :
+    ViewModel() {
 
     private val _nav = MutableLiveData<Int?>()
     val nav: LiveData<Int?> = _nav
@@ -39,32 +40,48 @@ class UserDataViewModel @Inject constructor(private val userInteractor: UserInte
         viewModelScope.launch {
             try {
                 userInteractor.saveUserData(userModel)
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 _error.value = e.message.toString()
             }
         }
         _nav.value = R.id.action_userDataFragment_to_userFragment
     }
 
-    fun saveUserDateNew (name: String, age: Int, height: Double, weightStart: Int, activityFactor: Double, bmi: Int){
+    fun saveUserDateNew(
+        id: Int,
+        name: String,
+        age: Int,
+        height: Double,
+        weightStart: Int,
+        activityFactor: Double,
+        bmi: Int
+    ) {
         viewModelScope.launch {
             try {
-                userInteractor.saveUserDataStart(name, age, height, weightStart, activityFactor, bmi)
-            }catch (e: Exception){
+                userInteractor.saveUserDataStart(
+                    id,
+                    name,
+                    age,
+                    height,
+                    weightStart,
+                    activityFactor,
+                    bmi
+                )
+            } catch (e: Exception) {
                 _error.value = e.message.toString()
             }
         }
         _nav.value = R.id.action_userDataFragment_to_userFragment
     }
 
-    fun userDataShow (){
+    fun userDataShow() {
         viewModelScope.launch {
             try {
                 _userData.value = userInteractor.showUserData()
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 _error.value = e.message.toString()
             }
         }
     }
 
-    }
+}

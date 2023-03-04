@@ -1,8 +1,7 @@
 package com.example.sportsfat.domain.model
 
-import com.google.android.material.textfield.TextInputEditText
-
 data class UserModel(
+    val id: Int,
     val name: String,
     val age: Int,
     val height: Double,

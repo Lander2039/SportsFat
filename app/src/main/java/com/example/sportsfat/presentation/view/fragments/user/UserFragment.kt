@@ -1,22 +1,17 @@
 package com.example.sportsfat.presentation.view.fragments.user
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sportsfat.R
-import com.example.sportsfat.databinding.FragmentProductsBinding
 import com.example.sportsfat.databinding.FragmentUserBinding
-import com.example.sportsfat.domain.model.UserModel
-import com.example.sportsfat.presentation.adapters.articles.ArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.UserArticlesAdapter
 import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesListener
-import com.example.sportsfat.presentation.view.fragments.products.ProductsViewModel
 import com.example.sportsfat.utils.BundleConstants
 import com.example.sportsfat.utils.NavHelper.navigate
 import com.example.sportsfat.utils.NavHelper.navigateWithBundle
@@ -43,9 +38,20 @@ class UserFragment : Fragment(), ArticlesListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.userDataShow()
+
+        viewModel.userData.observe(viewLifecycleOwner) {
+            viewBinding.tvUserName.text = it.name
+            viewBinding.tvUserWeightBefore.text = it.weightStart.toString()
+            viewBinding.tvUserWeightBefore2.text = it.weightStart.toString()
+            viewBinding.tvMyResultAfter.text = "${it.weightStart} - ${it.weightToday}"
+
+        }
+
         userArticlesAdapter = UserArticlesAdapter(this)
 
-        viewBinding.resArticlesUser.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        viewBinding.resArticlesUser.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         viewBinding.resArticlesUser.adapter = userArticlesAdapter
 
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
@@ -85,9 +91,10 @@ class UserFragment : Fragment(), ArticlesListener {
             viewModel.openMonday()
             viewModel.finishPerformed()
         }
+
     }
 
-    override fun onElementSelected(articlesName: String,  image: String, articlesText: String) {
-        viewModel.elementClicked(articlesName,image, articlesText)
+    override fun onElementSelected(articlesName: String, image: String, articlesText: String) {
+        viewModel.elementClicked(articlesName, image, articlesText)
     }
 }

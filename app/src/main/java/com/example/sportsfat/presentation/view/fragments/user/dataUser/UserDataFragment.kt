@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentUserDataBinding
 import com.example.sportsfat.domain.model.UserModel
-import com.example.sportsfat.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,6 +30,9 @@ class UserDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        viewModel.userDataShow()
+
         viewModel.calculateBMI(
             viewBinding.etHeight.text.toString().toDoubleOrNull() ?: 0.0,
             viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0
@@ -45,9 +47,11 @@ class UserDataFragment : Fragment() {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
 
+
         viewBinding.btnSave.setOnClickListener {
             viewModel.saveUserDate(
                 UserModel(
+                    1,
                     viewBinding.etName.text.toString(),
                     viewBinding.etAge.text.toString().toIntOrNull() ?: 0,
                     viewBinding.etHeight.text.toString().toDoubleOrNull() ?: 0.0,
@@ -56,13 +60,30 @@ class UserDataFragment : Fragment() {
                     R.drawable.logo,
                     viewBinding.etActivityFactor.text.toString().toDoubleOrNull() ?: 0.0,
                     bmi,
-                    0))
-            viewModel.userDataShow()
+                    (viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0)-(viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0)
+                )
+            )
         }
 
-        viewModel.userData.observe(viewLifecycleOwner){
-            viewBinding.tvResult.text = it.bmi.toString()
+        viewBinding.btnSave.setOnClickListener {
+            viewModel.saveUserDateNew(
+                1,
+                viewBinding.etName.text.toString(),
+                viewBinding.etAge.text.toString().toIntOrNull() ?: 0,
+                viewBinding.etHeight.text.toString().toDoubleOrNull() ?: 0.0,
+                viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0,
+                viewBinding.etActivityFactor.text.toString().toDoubleOrNull() ?: 0.0,
+                0
+            )
+        }
 
+        viewModel.userData.observe(viewLifecycleOwner) {
+            viewBinding.tvResult.text = it.resultWeight.toString()
+            viewBinding.etName.setText(it.name)
+            viewBinding.etAge.setText(it.age.toString())
+            viewBinding.etHeight.setText(it.height.toString())
+            viewBinding.etWeightStart.setText(it.weightStart.toString())
+            viewBinding.etActivityFactor.setText(it.activityFactor.toString())
         }
     }
 

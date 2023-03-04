@@ -65,10 +65,18 @@ interface DAO {
     @Query("SELECT * From UserEntity")
     fun getUserEntities(): UserModel
 
-    @Query("UPDATE UserEntity SET name =:name, age =:age, height =:height, weightStart =:weightStart, activityFactor =:activityFactor, bmi =:bmi WHERE name =:name")
-    fun updateUserDate(name: String, age: Int, height: Double, weightStart: Int, activityFactor: Double,bmi: Int)
+    @Query("UPDATE UserEntity SET name =:name, age =:age, height =:height, weightStart =:weightStart, activityFactor =:activityFactor, bmi =:bmi WHERE id =:id")
+    fun updateUserDate(
+        id: Int,
+        name: String,
+        age: Int,
+        height: Double,
+        weightStart: Int,
+        activityFactor: Double,
+        bmi: Int
+    )
 
-    @Query("UPDATE UserEntity SET name =:name, weightToday =:weightToday WHERE name =:name")
-    fun updateUserDateToday(name: String, weightToday: Int)
+    @Query("UPDATE UserEntity SET name =:name, weightToday =:weightToday WHERE id =:id")
+    fun updateUserDateToday(id: Int, name: String, weightToday: Int)
 
 }

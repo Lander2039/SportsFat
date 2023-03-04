@@ -26,7 +26,7 @@
     <string name="enter_the_number_of_operating_weight">Enter the number of operating weight</string>
     <string name="weight">Weight:</string>
     <string name="user">User</string>
-    <string name="my_results">My results</string>
+    <string name="my_results">My results:</string>
     <string name="before">Before:</string>
     <string name="after">After:</string>
     <string name="HeightCannotBeZero">Height cannot be zero</string>

@@ -53,6 +53,7 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:backgroundTint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -124,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     tools:ignore="TouchTargetSizeCheck"
                     android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>

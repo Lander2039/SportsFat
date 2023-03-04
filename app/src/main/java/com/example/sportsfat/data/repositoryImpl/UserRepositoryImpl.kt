@@ -5,10 +5,7 @@ import com.example.sportsfat.data.database.entity.UserEntity
 import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import java.util.*
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -19,7 +16,7 @@ class UserRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             DAO.insertUserEntity(
                 UserEntity(
-                    Random().nextInt(),
+                    userModel.id,
                     userModel.name,
                     userModel.age,
                     userModel.height,
@@ -38,6 +35,7 @@ class UserRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             val userEntity = DAO.getUserEntities()
             UserModel(
+                userEntity.id,
                 userEntity.name,
                 userEntity.age,
                 userEntity.height,
@@ -48,18 +46,26 @@ class UserRepositoryImpl @Inject constructor(
                 userEntity.bmi,
                 userEntity.resultWeight
             )
-            }
-        }
-
-    override suspend fun saveUserDataStart(name: String, age: Int, height: Double, weightStart: Int, activityFactor: Double,bmi: Int) {
-        return withContext(Dispatchers.IO) {
-            DAO.updateUserDate(name,age,height,weightStart,activityFactor,bmi)
         }
     }
 
-    override suspend fun saveUserDataToday(name: String, weightToday: Int) {
+    override suspend fun saveUserDataStart(
+        id: Int,
+        name: String,
+        age: Int,
+        height: Double,
+        weightStart: Int,
+        activityFactor: Double,
+        bmi: Int
+    ) {
         return withContext(Dispatchers.IO) {
-            DAO.updateUserDateToday(name,weightToday)
+            DAO.updateUserDate(id, name, age, height, weightStart, activityFactor, bmi)
+        }
+    }
+
+    override suspend fun saveUserDataToday(id: Int, name: String, weightToday: Int) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateUserDateToday(id, name, weightToday)
         }
     }
 

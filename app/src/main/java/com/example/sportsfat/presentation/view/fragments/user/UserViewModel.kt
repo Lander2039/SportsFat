@@ -3,11 +3,14 @@ package com.example.sportsfat.presentation.view.fragments.user
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.R
 import com.example.sportsfat.domain.articles.ArticlesInteractor
+import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,13 +22,17 @@ class UserViewModel @Inject constructor(
 
     val items = flow { emit(articlesInteractor.showData()) }
 
-    val itemsUserData = flow { emit(userInteractor.showUserData()) }
-
     private val _bundle = MutableLiveData<NavigateWithBundle?>()
     val bundle: LiveData<NavigateWithBundle?> = _bundle
 
     private val _nav = MutableLiveData<Int?>()
     val nav: LiveData<Int?> = _nav
+
+    private val _userData = MutableLiveData<UserModel>()
+    val userData: LiveData<UserModel> = _userData
+
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
 
     suspend fun getDataArticles() {
         articlesInteractor.getData()
@@ -50,6 +57,16 @@ class UserViewModel @Inject constructor(
 
     fun finishPerformed() {
         _nav.value = null
+    }
+
+    fun userDataShow (){
+        viewModelScope.launch {
+            try {
+                _userData.value = userInteractor.showUserData()
+            }catch (e: Exception){
+                _error.value = e.message.toString()
+            }
+        }
     }
 }
 
