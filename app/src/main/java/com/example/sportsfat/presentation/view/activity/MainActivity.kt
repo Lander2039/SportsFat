@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
 
         viewModel.nav.observe(this) {
-            navController.graph = getNavGraph()
+            navController.setGraph(it)
         }
 
         navController.addOnDestinationChangedListener(this)

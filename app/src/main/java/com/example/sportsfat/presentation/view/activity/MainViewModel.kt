@@ -7,12 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDestination
 import com.example.sportsfat.R
+import com.example.sportsfat.domain.user.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor(private val userInteractor: UserInteractor) : ViewModel() {
 
     private val _nav = MutableLiveData<Int>()
     val nav: LiveData<Int> = _nav
@@ -22,7 +23,11 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     fun checkUserExists() {
         viewModelScope.launch {
-            _nav.value = R.navigation.main_graph
+            val doesUserExist: Boolean = userInteractor.checkAppBackgroundSelection()
+            _nav.value = when (doesUserExist) {
+                true -> R.navigation.main_graph
+                false -> R.navigation.start_graph
+            }
         }
     }
 

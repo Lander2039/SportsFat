@@ -21,6 +21,7 @@ class DomainModule {
     fun provideArticlesInteractor(articlesRepository: ArticlesRepository): ArticlesInteractor {
         return ArticlesInteractor(articlesRepository)
     }
+
     @Provides
     fun provideProductsInteractor(productsRepository: ProductsRepository): ProductsInteractor {
         return ProductsInteractor(productsRepository)
