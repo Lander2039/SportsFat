@@ -76,7 +76,7 @@ interface DAO {
         bmi: Int
     )
 
-    @Query("UPDATE UserEntity SET name =:name, weightToday =:weightToday WHERE id =:id")
-    fun updateUserDateToday(id: Int, name: String, weightToday: Int)
+    @Query("UPDATE UserEntity SET weightToday =:weightToday WHERE id =:id")
+    fun updateUserDateToday(id: Int, weightToday: Int)
 
 }

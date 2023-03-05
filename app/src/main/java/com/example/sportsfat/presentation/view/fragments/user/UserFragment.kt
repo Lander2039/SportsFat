@@ -43,8 +43,8 @@ class UserFragment : Fragment(), ArticlesListener {
         viewModel.userData.observe(viewLifecycleOwner) {
             viewBinding.tvUserName.text = it.name
             viewBinding.tvUserWeightBefore.text = it.weightStart.toString()
-            viewBinding.tvUserWeightBefore2.text = it.weightStart.toString()
-            viewBinding.tvMyResultAfter.text = "${it.weightStart} - ${it.weightToday}"
+            viewBinding.tvUserWeightBefore2.text = it.weightToday.toString()
+            viewBinding.tvMyResultAfter.text = (it.weightStart - it.weightToday).toString()
 
         }
 
@@ -88,7 +88,12 @@ class UserFragment : Fragment(), ArticlesListener {
             }
         }
         viewBinding.iwEditUser.setOnClickListener {
-            viewModel.openMonday()
+            viewModel.openUserDate()
+            viewModel.finishPerformed()
+        }
+
+        viewBinding.iwChangeUser.setOnClickListener {
+            viewModel.openUserChange()
             viewModel.finishPerformed()
         }
 

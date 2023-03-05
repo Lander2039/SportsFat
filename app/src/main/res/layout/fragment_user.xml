@@ -61,7 +61,7 @@
                 android:id="@+id/iw_editUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow"
+                android:src="@drawable/ic_baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.958"
@@ -154,7 +154,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_myResult2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="@string/my_results"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -171,18 +171,17 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_myResultAfter"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="24dp"
-                android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/teal_200"
                 android:textSize="25sp"
-                android:textStyle="bold"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.016"
                 app:layout_constraintStart_toEndOf="@+id/tv_myResult2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.903">
+                app:layout_constraintVertical_bias="0.905">
 
             </com.google.android.material.textview.MaterialTextView>
 
@@ -210,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
-                android:textColor="#E5FF03"
+                android:textColor="@color/teal_200"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -228,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
-                android:textColor="#E5FF03"
+                android:textColor="@color/teal_200"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -259,10 +258,10 @@
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iw_resultUser"
+                android:id="@+id/iw_changeUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow"
+                android:src="@drawable/ic_add_change"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.957"

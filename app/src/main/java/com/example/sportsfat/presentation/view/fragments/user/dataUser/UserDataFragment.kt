@@ -49,23 +49,6 @@ class UserDataFragment : Fragment() {
 
 
         viewBinding.btnSave.setOnClickListener {
-            viewModel.saveUserDate(
-                UserModel(
-                    1,
-                    viewBinding.etName.text.toString(),
-                    viewBinding.etAge.text.toString().toIntOrNull() ?: 0,
-                    viewBinding.etHeight.text.toString().toDoubleOrNull() ?: 0.0,
-                    viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0,
-                    viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0,
-                    R.drawable.logo,
-                    viewBinding.etActivityFactor.text.toString().toDoubleOrNull() ?: 0.0,
-                    bmi,
-                    (viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0)-(viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0)
-                )
-            )
-        }
-
-        viewBinding.btnSave.setOnClickListener {
             viewModel.saveUserDateNew(
                 1,
                 viewBinding.etName.text.toString(),

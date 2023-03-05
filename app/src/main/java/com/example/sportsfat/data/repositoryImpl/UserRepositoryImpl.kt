@@ -2,6 +2,7 @@ package com.example.sportsfat.data.repositoryImpl
 
 import com.example.sportsfat.data.database.dao.DAO
 import com.example.sportsfat.data.database.entity.UserEntity
+import com.example.sportsfat.data.sharedPreferemces.SharedPreferencesHelper
 import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserRepository
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +10,8 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val DAO: DAO
+    private val DAO: DAO,
+    private val sharedPreferencesHelper: SharedPreferencesHelper
 ) : UserRepository {
 
     override suspend fun saveUserData(userModel: UserModel) {
@@ -63,11 +65,21 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun saveUserDataToday(id: Int, name: String, weightToday: Int) {
+    override suspend fun saveUserDataToday(id: Int, weightToday: Int) {
         return withContext(Dispatchers.IO) {
-            DAO.updateUserDateToday(id, name, weightToday)
+            DAO.updateUserDateToday(id, weightToday)
         }
     }
 
+    override suspend fun appBackgroundSelection(background: Int) {
+        withContext(Dispatchers.IO) {
+            sharedPreferencesHelper.appBackgroundSelection(background)
+        }
+    }
 
+    override suspend fun doesAppBackgroundSelection(): Boolean {
+        return withContext(Dispatchers.IO) {
+            sharedPreferencesHelper.checkUserExists()
+        }
+    }
 }

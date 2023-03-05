@@ -28,5 +28,5 @@ data class WorkoutEntity(
     @ColumnInfo("weight")
     val weight: String,
     @ColumnInfo("isFavorite")
-    val isFavorite: Boolean?=false
+    val isFavorite: Boolean? = false
 )

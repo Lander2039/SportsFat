@@ -16,6 +16,10 @@ interface UserRepository {
         bmi: Int
     )
 
-    suspend fun saveUserDataToday(id: Int, name: String, weightToday: Int)
+    suspend fun saveUserDataToday(id: Int, weightToday: Int)
+
+    suspend fun appBackgroundSelection(background: Int)
+
+    suspend fun doesAppBackgroundSelection(): Boolean
 
 }

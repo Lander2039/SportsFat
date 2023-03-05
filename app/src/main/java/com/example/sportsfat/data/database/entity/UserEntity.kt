@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity("UserEntity")
-data class UserEntity (
+data class UserEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo("id")
     val id: Int,
@@ -27,4 +27,4 @@ data class UserEntity (
     val bmi: Int,
     @ColumnInfo("resultWeight")
     val resultWeight: Int
-        )
+)

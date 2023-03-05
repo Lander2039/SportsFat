@@ -472,9 +472,14 @@ class WorkoutsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun saveApproaches(name: String, approaches: String, repetitions: String, weight: String) {
+    override suspend fun saveApproaches(
+        name: String,
+        approaches: String,
+        repetitions: String,
+        weight: String
+    ) {
         return withContext(Dispatchers.IO) {
-            DAO.saveApproaches(name,approaches, repetitions, weight)
+            DAO.saveApproaches(name, approaches, repetitions, weight)
         }
     }
 }

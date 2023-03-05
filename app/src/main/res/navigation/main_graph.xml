@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/articlesFragment">
+    app:startDestination="@id/userFragment">
 
     <fragment
         android:id="@+id/articlesFragment"
@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_userFragment_to_userDataFragment"
             app:destination="@id/userDataFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_userChangeFragment"
+            app:destination="@id/userChangeFragment" />
     </fragment>
     <fragment
         android:id="@+id/userDataFragment"
@@ -78,6 +81,15 @@
         tools:layout="@layout/fragment_user_data" >
         <action
             android:id="@+id/action_userDataFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userChangeFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.user.changeUser.UserChangeFragment"
+        android:label="fragment_user_change"
+        tools:layout="@layout/fragment_user_change" >
+        <action
+            android:id="@+id/action_userChangeFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
 </navigation>

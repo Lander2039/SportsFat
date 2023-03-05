@@ -36,17 +36,6 @@ class UserDataViewModel @Inject constructor(private val userInteractor: UserInte
         bmi = weight / (height * height)
     }
 
-    fun saveUserDate(userModel: UserModel) {
-        viewModelScope.launch {
-            try {
-                userInteractor.saveUserData(userModel)
-            } catch (e: Exception) {
-                _error.value = e.message.toString()
-            }
-        }
-        _nav.value = R.id.action_userDataFragment_to_userFragment
-    }
-
     fun saveUserDateNew(
         id: Int,
         name: String,

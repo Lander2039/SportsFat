@@ -51,8 +51,12 @@ class UserViewModel @Inject constructor(
         _bundle.value = null
     }
 
-    fun openMonday() {
+    fun openUserDate() {
         _nav.value = R.id.action_userFragment_to_userDataFragment
+    }
+
+    fun openUserChange(){
+        _nav.value = R.id.action_userFragment_to_userChangeFragment
     }
 
     fun finishPerformed() {

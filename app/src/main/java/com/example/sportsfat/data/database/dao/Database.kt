@@ -9,7 +9,11 @@ import com.example.sportsfat.data.database.entity.UserEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
 
-@androidx.room.Database(entities = [ArticlesEntity::class, ProductsEntity::class, WorkoutEntity::class, MondayWorkoutsEntity::class, UserEntity::class], version = 1, exportSchema = false)
+@androidx.room.Database(
+    entities = [ArticlesEntity::class, ProductsEntity::class, WorkoutEntity::class, MondayWorkoutsEntity::class, UserEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class Database : RoomDatabase() {
 
     abstract fun getItemsDAO(): DAO
