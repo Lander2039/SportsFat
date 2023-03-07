@@ -38,6 +38,8 @@
     <string name="buttocks">buttocks</string>
     <string name="back_and_neck">Back and neck</string>
     <string name="todo">TODO</string>
+    <string name="repetitions">Repetitions:</string>
+    <string name="approaches">Approaches:</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

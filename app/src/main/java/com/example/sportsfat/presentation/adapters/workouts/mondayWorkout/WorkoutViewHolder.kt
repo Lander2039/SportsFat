@@ -17,7 +17,7 @@ class WorkoutViewHolder(
         viewBinding.tvNumberRepetitions.text = mondayWorkoutModel.repetitions
         viewBinding.tvNumberWeight.text = mondayWorkoutModel.weight
 
-        viewBinding.details.setOnClickListener {
+        viewBinding.tvNameWorkout.setOnClickListener {
             workoutListener.onElementSelected(
                 mondayWorkoutModel.name,
                 mondayWorkoutModel.description,

@@ -12,32 +12,36 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/spr_back"
         >
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_nameWorkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="sdsssssssssssssssssss"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.163"
+            app:layout_constraintHorizontal_bias="0.153"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.137" />
+            app:layout_constraintVertical_bias="0.086" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:text="Approaches:"
+            android:text="@string/approaches"
             android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.058"
@@ -51,6 +55,8 @@
             android:layout_height="25dp"
             android:text="@string/weight"
             android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.595"
@@ -65,10 +71,11 @@
             android:layout_marginStart="16dp"
             android:text=""
             android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toEndOf="@+id/materialTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.624" />
@@ -81,6 +88,7 @@
             android:text=""
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -92,11 +100,13 @@
             android:id="@+id/materialTextView2"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:text="Repetitions:"
+            android:text="@string/repetitions"
+            android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintHorizontal_bias="0.076"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.864" />
@@ -105,8 +115,9 @@
             android:id="@+id/tv_numberRepetitions"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="18dp"
             android:text=""
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,29 +127,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.864" />
 
-        <ImageView
-            android:id="@+id/details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tv_nameWorkout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166"
-            app:srcCompat="@drawable/ic_baseline_question_mark_24" />
-
         <ImageButton
             android:id="@+id/ib_deleteWorkout"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="61dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="4dp"
+            android:layout_width="55dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.97"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_delete_24" />
+            app:layout_constraintVertical_bias="0.548"
+            app:srcCompat="@drawable/ic_baseline_delete_sweep_24" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

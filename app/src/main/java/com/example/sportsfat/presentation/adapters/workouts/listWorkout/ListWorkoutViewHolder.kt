@@ -15,7 +15,7 @@ class ListWorkoutViewHolder(
     fun bind(workoutModel: WorkoutModel) {
         viewBinding.tvNameWorkout.text = workoutModel.name
 
-        viewBinding.ivDetailsWorkout.setOnClickListener {
+        viewBinding.tvNameWorkout.setOnClickListener {
             listWorkoutListener.onElementSelected(
                 workoutModel.name,
                 workoutModel.description,

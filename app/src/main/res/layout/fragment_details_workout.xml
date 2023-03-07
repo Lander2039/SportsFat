@@ -12,8 +12,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_imageWorkout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -31,13 +31,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="51dp"
-            android:text="Name"
+            android:layout_marginBottom="6dp"
             android:textAlignment="center"
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_textDescription"
+            app:layout_constraintBottom_toTopOf="@+id/btn_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_imageWorkout" />
@@ -47,87 +46,116 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
+            android:visibility="invisible"
+            android:textSize="0.01sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_features"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_description"
-            android:visibility="invisible"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_description" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_textImplementationOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
             android:textAlignment="center"
+            android:visibility="invisible"
+            android:textSize="0.01sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_technique"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_features"
-            android:visibility="invisible"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_features" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_textExecutionTechnique"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:textAlignment="center"
+            android:textSize="0.01sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_technique"
-            android:visibility="invisible"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_technique" />
 
         <Button
             android:id="@+id/btn_description"
-            android:layout_width="108dp"
+            android:layout_width="match_parent"
             android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/description"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textStyle="bold"
+            android:gravity="left"
+            android:textColor="@color/black"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:layout_constraintBottom_toTopOf="@+id/tv_textDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nameWorkout" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nameWorkout"
+            tools:ignore="RtlHardcoded"
+            android:drawableEnd="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/btn_features"
-            android:layout_width="108dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
             android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="left"
             android:text="@string/features"
+            android:textColor="@color/black"
             android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_textImplementationOptions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_textDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_textDescription"
+            tools:ignore="RtlHardcoded"
+            android:drawableEnd="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/btn_technique"
-            android:layout_width="108dp"
+            android:layout_width="match_parent"
             android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/technique"
             android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_textExecutionTechnique"
+            android:gravity="left"
+            android:textColor="@color/black"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_textImplementationOptions" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_textImplementationOptions"
+            tools:ignore="RtlHardcoded"
+            android:drawableEnd="@drawable/ic_arrow"/>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="60dp"
             app:cardCornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -161,10 +189,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        tools:ignore="TouchTargetSizeCheck"
                         android:inputType="number"
                         android:maxLines="1"
-                        />
+                        tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -179,9 +206,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        tools:ignore="TouchTargetSizeCheck"
                         android:inputType="number"
-                        android:maxLines="1"/>
+                        android:maxLines="1"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -196,19 +223,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        tools:ignore="TouchTargetSizeCheck"
                         android:inputType="number"
-                        android:maxLines="1"/>
+                        android:maxLines="1"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_save"
-                    android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:gravity="center"
-                    android:text="@string/save">
-                </com.google.android.material.button.MaterialButton>
+                    android:text="@string/save"></com.google.android.material.button.MaterialButton>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
