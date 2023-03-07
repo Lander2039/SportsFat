@@ -8,6 +8,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.domain.model.ProductsModel
 import com.example.sportsfat.domain.products.ProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,26 +21,39 @@ class ProductsViewModel @Inject constructor(private val productsInteractor: Prod
     private val _product = MutableLiveData<ProductsModel>()
     val product: LiveData<ProductsModel> = _product
 
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
+
     fun getDataProducts() {
-        viewModelScope.launch {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                productsInteractor.getData()
+                launch {
+                    productsInteractor.getData()
+                }
             } catch (e: Exception) {
-                Log.w("exception", e.toString())
+                _error.value = e.message.toString()
+                Log.w("exception", "getDataProducts")
             }
         }
-
     }
 
     fun findProduct(searchText: String) {
-        viewModelScope.launch {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                val foundProduct = productsInteractor.findProduct(searchText)
-                _product.value = foundProduct
+                launch {
+                    val foundProduct = productsInteractor.findProduct(searchText)
+                    _product.value = foundProduct
+                }
             } catch (e: Exception) {
-                Log.w("exception", e.toString())
+                _error.value = e.message.toString()
+                Log.w("exception", "findProduct")
             }
         }
     }
-
 }

@@ -12,4 +12,63 @@
     <string name="fats">fats</string>
     <string name="carbohydrates">carbohydrates</string>
     <string name="products">Products</string>
+    <string name="workouts">Workouts</string>
+    <string name="workoutDelete">Workout delete</string>
+    <string name="Saved">Saved</string>
+    <string name="WorkoutAdd">Workout added</string>
+    <string name="description">Description</string>
+    <string name="features">Features</string>
+    <string name="technique">Technique</string>
+    <string name="editing_the_number_of_repetitions_and_approaches">Editing the number of repetitions and approaches</string>
+    <string name="enter_the_number_of_approaches">Enter the number of approaches</string>
+    <string name="enter_the_number_of_repetitions">Enter the number of repetitions</string>
+    <string name="save">Save</string>
+    <string name="enter_the_number_of_operating_weight">Enter the number of operating weight</string>
+    <string name="weight">Weight:</string>
+    <string name="user">User</string>
+    <string name="my_results">My results:</string>
+    <string name="before">Before:</string>
+    <string name="after">After:</string>
+    <string name="HeightCannotBeZero">Height cannot be zero</string>
+    <string name="legs">Legs</string>
+    <string name="breast">Breast</string>
+    <string name="hands">Hands</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="press">Press</string>
+    <string name="buttocks">buttocks</string>
+    <string name="back_and_neck">Back and neck</string>
+    <string name="todo">TODO</string>
+    <string name="repetitions">Repetitions:</string>
+    <string name="approaches">Approaches:</string>
+    <string-array name="spinner_approaches">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="spinner_repetitions">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+    </string-array>
 </resources>

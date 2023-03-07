@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.sportsfat.databinding.FragmentWorkoutsBinding
+import com.example.sportsfat.utils.NavHelper.navigate
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WorkoutsFragment : Fragment() {
 
     private val viewModel: WorkoutsViewModel by viewModels()
@@ -28,5 +31,14 @@ class WorkoutsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        viewModel.nav.observe(viewLifecycleOwner) {
+            if (it != null) {
+                navigate(it)
+            }
+        }
+        viewBinding.btnMonday.setOnClickListener {
+            viewModel.openMonday()
+            viewModel.finishPerformed()
+        }
     }
 }

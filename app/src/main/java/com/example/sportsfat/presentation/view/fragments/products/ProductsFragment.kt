@@ -15,10 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProductsFragment : Fragment(), ProductsListener {
 
     private val viewModel: ProductsViewModel by viewModels()
-
     private var _viewBinding: FragmentProductsBinding? = null
     private val viewBinding get() = _viewBinding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

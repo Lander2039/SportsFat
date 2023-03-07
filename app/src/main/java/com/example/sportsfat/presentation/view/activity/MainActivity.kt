@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
 
         viewModel.nav.observe(this) {
-            navController.graph = getNavGraph()
+            navController.setGraph(it)
         }
 
         navController.addOnDestinationChangedListener(this)
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         viewBinding.buttonNavigation.setupWithNavController(navController)
 
         val btnNav = AppBarConfiguration(
-            setOf(R.id.articlesFragment, R.id.onBoardingFragment)
+            setOf(R.id.userFragment, R.id.onBoardingFragment)
         )
 
         NavigationUI.setupActionBarWithNavController(this, navController, btnNav)
@@ -55,19 +54,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         viewModel.visibility.observe(this) {
             viewBinding.buttonNavigation.visibility = it
         }
-    }
-
-    private fun getNavGraph(): NavGraph {
-        val navGraph = navHostFragment.navController.navInflater.inflate(
-            R.navigation.main_graph
-        )
-        val random = (1..2).random()
-        if (random == 1) {
-            navGraph.startDestination = R.id.articlesFragment
-        } else {
-            navGraph.startDestination = R.id.articlesFragment
-        }
-        return navGraph
     }
 
     override fun onDestinationChanged(
@@ -84,4 +70,3 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController.removeOnDestinationChangedListener(this)
     }
 }
-

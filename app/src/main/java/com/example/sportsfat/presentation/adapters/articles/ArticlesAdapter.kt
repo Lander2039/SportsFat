@@ -33,6 +33,6 @@ class ArticlesAdapter(
     }
 
     override fun getItemCount(): Int {
-        return  listArticles.size
+        return listArticles.size
     }
 }

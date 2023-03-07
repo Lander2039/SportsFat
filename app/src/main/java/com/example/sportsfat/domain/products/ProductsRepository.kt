@@ -10,4 +10,5 @@ interface ProductsRepository {
     suspend fun showData(): Flow<List<ProductsModel>>
 
     suspend fun findProductByName(searchText: String): ProductsModel
+
 }
