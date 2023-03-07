@@ -2,13 +2,11 @@ package com.example.sportsfat.presentation.view.fragments.articles.detailsArticl
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.sportsfat.R
-import com.example.sportsfat.databinding.FragmentArticlesBinding
 import com.example.sportsfat.databinding.FragmentDetailsArticlesBinding
 import com.example.sportsfat.utils.BundleConstants
 import com.squareup.picasso.Picasso
@@ -26,7 +24,7 @@ class DetailsArticlesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _viewBinding = FragmentDetailsArticlesBinding.inflate(inflater,container, false)
+        _viewBinding = FragmentDetailsArticlesBinding.inflate(inflater, container, false)
         return viewBinding.root
     }
 

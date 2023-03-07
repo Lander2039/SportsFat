@@ -1,5 +1,6 @@
 package com.example.sportsfat.presentation.view.fragments.user.dataUser
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,9 @@ import com.example.sportsfat.R
 import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -45,32 +49,43 @@ class UserDataViewModel @Inject constructor(private val userInteractor: UserInte
         activityFactor: Double,
         bmi: Int
     ) {
-        viewModelScope.launch {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                userInteractor.saveUserDataStart(
-                    id,
-                    name,
-                    age,
-                    height,
-                    weightStart,
-                    activityFactor,
-                    bmi
-                )
+                launch {
+                    userInteractor.saveUserDataStart(
+                        id,
+                        name,
+                        age,
+                        height,
+                        weightStart,
+                        activityFactor,
+                        bmi
+                    )
+                }
             } catch (e: Exception) {
                 _error.value = e.message.toString()
+                Log.w("exception", "saveUserDateNew")
             }
         }
         _nav.value = R.id.action_userDataFragment_to_userFragment
     }
 
     fun userDataShow() {
-        viewModelScope.launch {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                _userData.value = userInteractor.showUserData()
+                launch {
+                    _userData.value = userInteractor.showUserData()
+                }
             } catch (e: Exception) {
                 _error.value = e.message.toString()
+                Log.w("exception", "userDataShow")
             }
         }
     }
-
 }

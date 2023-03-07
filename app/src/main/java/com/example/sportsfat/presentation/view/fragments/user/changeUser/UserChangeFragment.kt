@@ -1,10 +1,10 @@
 package com.example.sportsfat.presentation.view.fragments.user.changeUser
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.sportsfat.databinding.FragmentUserChangeBinding
 import com.example.sportsfat.utils.NavHelper.navigate
@@ -29,10 +29,13 @@ class UserChangeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewBinding.btnSave.setOnClickListener {
-            viewModel.saveUserWeightStart(1, viewBinding.etWeight.text.toString().toIntOrNull() ?: 0)
+            viewModel.saveUserWeightStart(
+                1,
+                viewBinding.etWeight.text.toString().toIntOrNull() ?: 0
+            )
         }
 
-        viewModel.nav.observe(viewLifecycleOwner){
+        viewModel.nav.observe(viewLifecycleOwner) {
             if (it != null) {
                 navigate(it)
             }

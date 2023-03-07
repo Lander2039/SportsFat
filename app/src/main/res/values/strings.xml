@@ -30,6 +30,14 @@
     <string name="before">Before:</string>
     <string name="after">After:</string>
     <string name="HeightCannotBeZero">Height cannot be zero</string>
+    <string name="legs">Legs</string>
+    <string name="breast">Breast</string>
+    <string name="hands">Hands</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="press">Press</string>
+    <string name="buttocks">buttocks</string>
+    <string name="back_and_neck">Back and neck</string>
+    <string name="todo">TODO</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

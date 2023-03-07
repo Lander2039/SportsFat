@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -55,19 +54,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         viewModel.visibility.observe(this) {
             viewBinding.buttonNavigation.visibility = it
         }
-    }
-
-    private fun getNavGraph(): NavGraph {
-        val navGraph = navHostFragment.navController.navInflater.inflate(
-            R.navigation.main_graph
-        )
-        val random = (1..2).random()
-        if (random == 1) {
-            navGraph.startDestination = R.id.userFragment
-        } else {
-            navGraph.startDestination = R.id.userFragment
-        }
-        return navGraph
     }
 
     override fun onDestinationChanged(

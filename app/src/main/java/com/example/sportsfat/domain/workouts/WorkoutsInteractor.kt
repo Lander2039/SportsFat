@@ -15,7 +15,7 @@ class WorkoutsInteractor @Inject constructor(private val workoutsRepository: Wor
         return workoutsRepository.showData()
     }
 
-    suspend fun getMondayWorkouts(): Flow<List<MondayWorkoutModel>>{
+    suspend fun getMondayWorkouts(): Flow<List<MondayWorkoutModel>> {
         return workoutsRepository.getMondayWorkouts()
     }
 
@@ -24,11 +24,16 @@ class WorkoutsInteractor @Inject constructor(private val workoutsRepository: Wor
         workoutsRepository.addMondayWorkouts(foundItem, isFavorite)
     }
 
-    suspend fun deleteWorkoutByName(name: String){
+    suspend fun deleteWorkoutByName(name: String) {
         workoutsRepository.deleteWorkoutByName(name)
     }
 
-    suspend fun saveApproaches(name: String, approaches:String, repetitions: String, weight: String){
+    suspend fun saveApproaches(
+        name: String,
+        approaches: String,
+        repetitions: String,
+        weight: String
+    ) {
         workoutsRepository.saveApproaches(name, approaches, repetitions, weight)
     }
 

@@ -36,10 +36,12 @@ class UserInteractor @Inject constructor(private val userRepository: UserReposit
     suspend fun saveUserDataToday(id: Int, weightToday: Int) {
         return userRepository.saveUserDataToday(id, weightToday)
     }
-    suspend fun appBackgroundSelection(background:Int) {
+
+    suspend fun appBackgroundSelection(background: Int) {
         return userRepository.appBackgroundSelection(background)
     }
-    suspend fun checkAppBackgroundSelection(): Boolean{
+
+    suspend fun checkAppBackgroundSelection(): Boolean {
         return userRepository.doesAppBackgroundSelection()
     }
 

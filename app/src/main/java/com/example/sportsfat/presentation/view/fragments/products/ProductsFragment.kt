@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.sportsfat.databinding.FragmentProductsBinding
-import com.example.sportsfat.presentation.adapters.products.ProductsAdapter
 import com.example.sportsfat.presentation.adapters.products.listener.ProductsListener
 import dagger.hilt.android.AndroidEntryPoint
 

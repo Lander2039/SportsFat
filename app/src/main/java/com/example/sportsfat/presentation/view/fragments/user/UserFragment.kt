@@ -96,7 +96,6 @@ class UserFragment : Fragment(), ArticlesListener {
             viewModel.openUserChange()
             viewModel.finishPerformed()
         }
-
     }
 
     override fun onElementSelected(articlesName: String, image: String, articlesText: String) {

@@ -23,7 +23,7 @@
                 android:id="@+id/btn_backAndNeck"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Back and neck"
+                android:text="@string/back_and_neck"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -33,7 +33,7 @@
                 android:id="@+id/btn_buttocks"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="buttocks"
+                android:text="@string/buttocks"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -43,7 +43,7 @@
                 android:id="@+id/btn_press"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Press"
+                android:text="@string/press"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -53,7 +53,7 @@
                 android:id="@+id/btn_shoulders"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Shoulders"
+                android:text="@string/shoulders"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -63,7 +63,7 @@
                 android:id="@+id/btn_hands"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Hands"
+                android:text="@string/hands"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -73,7 +73,7 @@
                 android:id="@+id/btn_breast"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Breast"
+                android:text="@string/breast"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">
@@ -83,7 +83,7 @@
                 android:id="@+id/btn_legs"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Legs"
+                android:text="@string/legs"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored">

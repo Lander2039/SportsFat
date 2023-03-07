@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentUserDataBinding
-import com.example.sportsfat.domain.model.UserModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

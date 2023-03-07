@@ -1,5 +1,6 @@
 package com.example.sportsfat.presentation.view.fragments.onboarding
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,9 @@ import com.example.sportsfat.R
 import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,23 +42,35 @@ class OnBoardingViewModel @Inject constructor(
     }
 
     fun saveUserDate(userModel: UserModel) {
-        viewModelScope.launch {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                userInteractor.saveUserData(userModel)
+                launch {
+                    userInteractor.saveUserData(userModel)
+                    _nav.value = R.navigation.main_graph
+                }
             } catch (e: Exception) {
                 _error.value = e.message.toString()
+                Log.w("exception", "saveUserDate")
             }
         }
-        _nav.value = R.navigation.main_graph
     }
 
-    fun appBackgroundSelection(background:Int){
-        viewModelScope.launch {
-            try {
-                userInteractor.appBackgroundSelection(background)
-            } catch (e: Exception) {
-                _error.value = e.message.toString()
+        fun appBackgroundSelection(background: Int) {
+            val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+                Log.w("exceptionHandler called", exception.toString())
+            }
+            viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
+                try {
+                    launch {
+                        userInteractor.appBackgroundSelection(background)
+                    }
+                } catch (e: Exception) {
+                    _error.value = e.message.toString()
+                    Log.w("exception", "appBackgroundSelection")
+                }
             }
         }
     }
-}

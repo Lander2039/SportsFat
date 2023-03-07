@@ -18,7 +18,7 @@ class ArticlesViewModel @Inject constructor(private val articlesInteractor: Arti
     private val _bundle = MutableLiveData<NavigateWithBundle?>()
     val bundle: LiveData<NavigateWithBundle?> = _bundle
 
-    suspend fun getDataArticles(){
+    suspend fun getDataArticles() {
         articlesInteractor.getData()
     }
 

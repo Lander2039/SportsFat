@@ -66,9 +66,5 @@ class OnBoardingFragment : Fragment() {
         viewModel.error.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
-
-        viewModel.errorHeight.observe(viewLifecycleOwner) {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-        }
     }
 }

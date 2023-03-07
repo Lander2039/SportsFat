@@ -1,5 +1,6 @@
 package com.example.sportsfat.presentation.view.fragments.user
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,9 @@ import com.example.sportsfat.domain.articles.ArticlesInteractor
 import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.user.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -55,7 +59,7 @@ class UserViewModel @Inject constructor(
         _nav.value = R.id.action_userFragment_to_userDataFragment
     }
 
-    fun openUserChange(){
+    fun openUserChange() {
         _nav.value = R.id.action_userFragment_to_userChangeFragment
     }
 
@@ -63,12 +67,18 @@ class UserViewModel @Inject constructor(
         _nav.value = null
     }
 
-    fun userDataShow (){
-        viewModelScope.launch {
+    fun userDataShow() {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-                _userData.value = userInteractor.showUserData()
-            }catch (e: Exception){
+                launch {
+                    _userData.value = userInteractor.showUserData()
+                }
+            } catch (e: Exception) {
                 _error.value = e.message.toString()
+                Log.w("exception", "userDataShow")
             }
         }
     }

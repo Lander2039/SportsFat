@@ -48,27 +48,27 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
             changeList(changeWorkout!!)
         }
         viewBinding.btnButtocks.setOnClickListener {
-            changeWorkout = 4
+            changeWorkout = 2
             changeList(changeWorkout!!)
         }
         viewBinding.btnPress.setOnClickListener {
-            changeWorkout = 5
+            changeWorkout = 3
             changeList(changeWorkout!!)
         }
         viewBinding.btnShoulders.setOnClickListener {
-            changeWorkout = 6
+            changeWorkout = 4
             changeList(changeWorkout!!)
         }
         viewBinding.btnHands.setOnClickListener {
-            changeWorkout = 7
+            changeWorkout = 5
             changeList(changeWorkout!!)
         }
         viewBinding.btnBreast.setOnClickListener {
-            changeWorkout = 1
+            changeWorkout = 6
             changeList(changeWorkout!!)
         }
         viewBinding.btnLegs.setOnClickListener {
-            changeWorkout = 3
+            changeWorkout = 7
             changeList(changeWorkout!!)
         }
 
@@ -81,8 +81,14 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
                 val bundle = Bundle()
                 bundle.putString(BundleConstants.NAME_WORKOUT, navBundle.name)
                 bundle.putString(BundleConstants.DESCRIPTION_WORKOUT, navBundle.description)
-                bundle.putString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT, navBundle.implementationOptions)
-                bundle.putString(BundleConstants.EXECUTION_TECHNIQUE_WORKOUT, navBundle.executionTechnique)
+                bundle.putString(
+                    BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT,
+                    navBundle.implementationOptions
+                )
+                bundle.putString(
+                    BundleConstants.EXECUTION_TECHNIQUE_WORKOUT,
+                    navBundle.executionTechnique
+                )
                 bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
                 navigateWithBundle(
                     navBundle.destinationId, bundle
@@ -98,7 +104,8 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
             }.collect { flowList ->
                 flowList.collect { list ->
-                    val listSorted = list.mapNotNull { if (it.keyWorkout == changeList) it else null }
+                    val listSorted =
+                        list.mapNotNull { if (it.keyWorkout == changeList) it else null }
                     listWorkoutsAdapter.submitList(listSorted)
                 }
             }
@@ -109,8 +116,20 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
         }
     }
 
-    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int) {
-        viewModel.elementClicked(name,description,implementationOptions,executionTechnique,image)
+    override fun onElementSelected(
+        name: String,
+        description: String,
+        implementationOptions: String,
+        executionTechnique: String,
+        image: Int
+    ) {
+        viewModel.elementClicked(
+            name,
+            description,
+            implementationOptions,
+            executionTechnique,
+            image
+        )
     }
 
     override fun onAddClicked(name: String, isFavorite: Boolean) {
