@@ -40,6 +40,13 @@
     <string name="todo">TODO</string>
     <string name="repetitions">Repetitions:</string>
     <string name="approaches">Approaches:</string>
+    <string name="hello_my_chubby_friend">Hello my chubby friend</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_height_meters">Enter height (meters)</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="enter_activity_factor_from_1_2_to_1_9">Enter activity factor (from 1.2 to 1.9)</string>
+    <string name="to_try_one_more_time">To try one more time</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

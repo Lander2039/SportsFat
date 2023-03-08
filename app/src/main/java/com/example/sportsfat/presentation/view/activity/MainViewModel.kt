@@ -50,7 +50,7 @@ class MainViewModel @Inject constructor(private val userInteractor: UserInteract
     }
 
     fun destinationChanged(destination: NavDestination) {
-        if (destination.id == R.id.onBoardingFragment) {
+        if (destination.id == R.id.onBoardingFragment || destination.id == R.id.noInternetFragment) {
             _visibility.value = View.GONE
         } else {
             _visibility.value = View.VISIBLE

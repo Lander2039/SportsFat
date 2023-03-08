@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Hello my chubby friend"
+        android:text="@string/hello_my_chubby_friend"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:hint="Enter name">
+            android:hint="@string/enter_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:hint="Enter age">
+            android:hint="@string/enter_age">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_age"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="Enter height (meters)">
+                android:hint="@string/enter_height_meters">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_height"
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="Enter weight">
+                android:hint="@string/enter_weight">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_WeightStart"
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="Enter activity factor (from 1.2 to 1.9)">
+                android:hint="@string/enter_activity_factor_from_1_2_to_1_9">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_activityFactor"

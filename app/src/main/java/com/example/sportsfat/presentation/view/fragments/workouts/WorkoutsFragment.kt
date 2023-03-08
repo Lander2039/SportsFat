@@ -40,5 +40,9 @@ class WorkoutsFragment : Fragment() {
             viewModel.openMonday()
             viewModel.finishPerformed()
         }
+        viewBinding.btnWednesday.setOnClickListener {
+            viewModel.openNoInternet()
+            viewModel.finishPerformed()
+        }
     }
 }

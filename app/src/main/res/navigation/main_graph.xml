@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_articlesFragment_to_detailsArticlesFragment"
             app:destination="@id/detailsArticlesFragment" />
+        <action
+            android:id="@+id/action_articlesFragment_to_noInternetFragment"
+            app:destination="@id/noInternetFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsArticlesFragment"
@@ -32,6 +35,9 @@
         <action
             android:id="@+id/action_workoutsFragment_to_mondayFragment"
             app:destination="@id/mondayFragment" />
+        <action
+            android:id="@+id/action_workoutsFragment_to_noInternetFragment"
+            app:destination="@id/noInternetFragment" />
     </fragment>
     <fragment
         android:id="@+id/mondayFragment"
@@ -90,6 +96,15 @@
         tools:layout="@layout/fragment_user_change" >
         <action
             android:id="@+id/action_userChangeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noInternetFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.internet.NoInternetFragment"
+        android:label="fragment_no_internet"
+        tools:layout="@layout/fragment_no_internet" >
+        <action
+            android:id="@+id/action_noInternetFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
 </navigation>
