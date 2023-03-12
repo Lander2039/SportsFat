@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
 @AndroidEntryPoint
-class ArticlesFragment : Fragment(), ArticlesListener {
+class ArticlesFragment : Fragment(), ArticlesListener{
 
     private val viewModel: ArticlesViewModel by viewModels()
 
@@ -82,7 +82,6 @@ class ArticlesFragment : Fragment(), ArticlesListener {
             }
         }
     }
-
     override fun onElementSelected(articlesName: String, image: String, articlesText: String) {
         viewModel.elementClicked(articlesName, image, articlesText)
     }

@@ -14,7 +14,6 @@ class ArticlesAdapter(
 
     private var listArticles = mutableListOf<ArticlesModel>()
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(list: List<ArticlesModel>) {
         this.listArticles.clear()

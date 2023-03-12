@@ -11,7 +11,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsWorkoutViewModel @Inject constructor(private val workoutsInteractor: WorkoutsInteractor): ViewModel() {
+class DetailsWorkoutViewModel @Inject constructor(private val workoutsInteractor: WorkoutsInteractor) :
+    ViewModel() {
 
     private val _msg = MutableLiveData<Int>()
     val msg: LiveData<Int> = _msg

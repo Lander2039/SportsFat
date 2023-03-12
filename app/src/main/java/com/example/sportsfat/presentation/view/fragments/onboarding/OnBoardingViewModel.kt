@@ -37,7 +37,7 @@ class OnBoardingViewModel @Inject constructor(
     private val _trainingDay = MutableLiveData<TrainingDayModel>()
     val trainingDay: LiveData<TrainingDayModel> = _trainingDay
 
-    fun saveTrainingDay(trainingDayModel: TrainingDayModel){
+    fun saveTrainingDay(trainingDayModel: TrainingDayModel) {
         val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
             Log.w("exceptionHandler called", exception.toString())
         }
@@ -79,19 +79,19 @@ class OnBoardingViewModel @Inject constructor(
         }
     }
 
-        fun appBackgroundSelection(background: Int) {
-            val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
-                Log.w("exceptionHandler called", exception.toString())
-            }
-            viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
-                try {
-                    launch {
-                        userInteractor.appBackgroundSelection(background)
-                    }
-                } catch (e: Exception) {
-                    _error.value = e.message.toString()
-                    Log.w("exception", "appBackgroundSelection")
+    fun appBackgroundSelection(background: Int) {
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
+            try {
+                launch {
+                    userInteractor.appBackgroundSelection(background)
                 }
+            } catch (e: Exception) {
+                _error.value = e.message.toString()
+                Log.w("exception", "appBackgroundSelection")
             }
         }
     }
+}

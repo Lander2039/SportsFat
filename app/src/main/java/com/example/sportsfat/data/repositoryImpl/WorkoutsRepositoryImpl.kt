@@ -226,6 +226,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
             )
         }
     }
+
     override suspend fun saveTrainingDay5(
         id: Int,
         fifthDay: String
@@ -236,6 +237,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
             )
         }
     }
+
     override suspend fun saveTrainingDay6(
         id: Int,
         sixthDay: String
@@ -246,6 +248,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
             )
         }
     }
+
     override suspend fun saveTrainingDay7(
         id: Int,
         seventhDay: String
@@ -952,7 +955,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 isFavorite = false
             ),
             WorkoutModel(
-                name = "Отжимания трицепсами спиной к скамье",
+                name = "Отжимания спиной к скамье",
                 description = "Это упражнение прорабатывает трицепсы, грудные мышцы и передние отделы дельтовидных мышц.",
                 implementationOptions = "Советы относительно правильной техники выполнения упражнения:\n" +
                         "\n" +

@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.R
-import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import com.example.sportsfat.domain.workouts.WorkoutsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,22 +39,6 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
 
     private val _trainingDay = MutableLiveData<TrainingDayModel>()
     val trainingDay: LiveData<TrainingDayModel> = _trainingDay
-
-    fun saveTrainingDay(trainingDayModel: TrainingDayModel){
-        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
-            Log.w("exceptionHandler called", exception.toString())
-        }
-        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
-            try {
-                launch {
-                    workoutsInteractor.saveTrainingDay(trainingDayModel)
-                }
-            } catch (e: Exception) {
-                _error.value = e.message.toString()
-                Log.w("exception", "saveUserDateNew")
-            }
-        }
-    }
 
     fun saveTrainingDay1(
         id: Int,
@@ -105,7 +88,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
         viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
                 launch {
-                    workoutsInteractor.saveTrainingDay3(id,theThirdDay)
+                    workoutsInteractor.saveTrainingDay3(id, theThirdDay)
                 }
             } catch (e: Exception) {
                 _error.value = e.message.toString()
@@ -113,6 +96,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
             }
         }
     }
+
     fun saveTrainingDay4(
         id: Int,
         fourthDay: String,
@@ -131,6 +115,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
             }
         }
     }
+
     fun saveTrainingDay5(
         id: Int,
         fifthDay: String
@@ -149,6 +134,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
             }
         }
     }
+
     fun saveTrainingDay6(
         id: Int,
         sixthDay: String
@@ -159,7 +145,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
         viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
                 launch {
-                    workoutsInteractor.saveTrainingDay6(id,sixthDay)
+                    workoutsInteractor.saveTrainingDay6(id, sixthDay)
                 }
             } catch (e: Exception) {
                 _error.value = e.message.toString()
@@ -167,6 +153,7 @@ class WorkoutsViewModel @Inject constructor(private val workoutsInteractor: Work
             }
         }
     }
+
     fun saveTrainingDay7(
         id: Int,
         seventhDay: String

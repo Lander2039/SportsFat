@@ -32,7 +32,7 @@ class ArticlesViewModel @Inject constructor(
         val internet = internetConnection.isOnline()
         if (internet) {
             articlesInteractor.getData()
-        }  else{
+        } else {
             _nav.value = R.id.action_articlesFragment_to_noInternetFragment
         }
     }

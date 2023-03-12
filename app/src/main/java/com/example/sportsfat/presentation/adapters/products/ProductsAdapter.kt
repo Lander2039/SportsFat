@@ -14,7 +14,6 @@ class ProductsAdapter(
 
     private var listProducts = mutableListOf<ProductsModel>()
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(list: List<ProductsModel>) {
         this.listProducts.clear()

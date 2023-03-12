@@ -14,7 +14,6 @@ class WorkoutAdapter(
 
     private var listMondayWorkouts = mutableListOf<MondayWorkoutModel>()
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(list: List<MondayWorkoutModel>) {
 
@@ -32,7 +31,6 @@ class WorkoutAdapter(
 
     override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
         holder.bind(listMondayWorkouts[position])
-
     }
 
     override fun getItemCount(): Int {

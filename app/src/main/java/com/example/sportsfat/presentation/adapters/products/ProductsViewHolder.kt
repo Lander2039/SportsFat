@@ -9,12 +9,11 @@ class ProductsViewHolder(
 
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-
     fun bind(productsModel: ProductsModel) {
-        viewBinding.tvNameProduct.text = productsModel.name
-        viewBinding.tvCaloriesProduct.text = productsModel.calories.toString()
-        viewBinding.tvSquirrelsProduct.text = productsModel.squirrels.toString()
-        viewBinding.tvFatsProduct.text = productsModel.fats.toString()
-        viewBinding.tvCarbohydratesProduct.text = productsModel.carbohydrates.toString()
+//        viewBinding.tvNameProduct.text = productsModel.name
+//        viewBinding.tvCaloriesProduct.text = productsModel.calories.toString()
+//        viewBinding.tvSquirrelsProduct.text = productsModel.squirrels.toString()
+//        viewBinding.tvFatsProduct.text = productsModel.fats.toString()
+//        viewBinding.tvCarbohydratesProduct.text = productsModel.carbohydrates.toString()
     }
 }

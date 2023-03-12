@@ -21,7 +21,12 @@
         android:id="@+id/detailsArticlesFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.articles.detailsArticles.DetailsArticlesFragment"
         android:label="fragment_details_articles"
-        tools:layout="@layout/fragment_details_articles" />
+        tools:layout="@layout/fragment_details_articles">
+        <action
+            android:id="@+id/action_detailsArticlesFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment"
+            />
+    </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.products.ProductsFragment"

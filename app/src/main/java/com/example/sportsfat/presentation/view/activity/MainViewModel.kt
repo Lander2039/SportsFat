@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(private val userInteractor: UserInteract
     val msg: LiveData<String?> = _msg
 
     fun checkUserExists() {
-        val coroutineExceptionHandler = CoroutineExceptionHandler{_, exception ->
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
             Log.w("exceptionHandler called", exception.toString())
         }
         viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {

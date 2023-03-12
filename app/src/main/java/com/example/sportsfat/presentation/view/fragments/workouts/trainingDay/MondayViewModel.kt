@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.R
-import com.example.sportsfat.domain.model.UserModel
 import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import com.example.sportsfat.domain.workouts.WorkoutsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -41,22 +40,31 @@ class MondayViewModel @Inject constructor(private val workoutsInteractor: Workou
     private val _trainingDay = MutableLiveData<TrainingDayModel>()
     val trainingDay: LiveData<TrainingDayModel> = _trainingDay
 
-    fun openListWorkouts(){
+    fun openListWorkouts() {
         _nav.value = R.id.action_mondayFragment_to_listWorkoutsFragment
     }
 
-    fun finishPerformed(){
+    fun finishPerformed() {
         _nav.value = null
     }
 
-    fun deleteMondayWorkout(name: String){
+    fun deleteMondayWorkout(name: String) {
         viewModelScope.launch {
             workoutsInteractor.deleteWorkoutByName(name)
             _msg.value = R.string.workoutDelete
         }
     }
 
-    fun elementClicked(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String, nameWorkoutsDay: String) {
+    fun elementClicked(
+        name: String,
+        description: String,
+        implementationOptions: String,
+        executionTechnique: String,
+        image: Int,
+        approaches: String,
+        repetitions: String,
+        nameWorkoutsDay: String
+    ) {
         _bundle.value = NavigateWithBundle(
             name,
             description,

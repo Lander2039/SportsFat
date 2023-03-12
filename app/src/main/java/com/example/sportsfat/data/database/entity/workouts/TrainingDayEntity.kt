@@ -24,4 +24,4 @@ data class TrainingDayEntity(
     @ColumnInfo("seventhDay")
     val seventhDay: String,
 
-)
+    )

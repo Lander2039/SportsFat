@@ -53,6 +53,12 @@
     <string name="Ok">OK</string>
     <string name="Cansel">Cansel</string>
     <string name="TrainingDay">Training Day</string>
+    <string name="Calories">\"Calories: \"</string>
+    <string name="Squirrels">\"Squirrels: \"</string>
+    <string name="Fats">\"Fats: \"</string>
+    <string name="Carbohydrates">\"Carbohydrates: \"</string>
+    <string name="background_grey">Background grey</string>
+    <string name="weight_today">Weight today:</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

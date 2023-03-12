@@ -45,9 +45,7 @@ class UserFragment : Fragment(), ArticlesListener {
             viewBinding.tvUserWeightBefore.text = it.weightStart.toString()
             viewBinding.tvUserWeightBefore2.text = it.weightToday.toString()
             viewBinding.tvMyResultAfter.text = (it.weightStart - it.weightToday).toString()
-
         }
-
         userArticlesAdapter = UserArticlesAdapter(this)
 
         viewBinding.resArticlesUser.layoutManager =

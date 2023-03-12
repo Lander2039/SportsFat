@@ -6,6 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface ArticlesRepository {
 
     suspend fun getData()
-
     suspend fun showData(): Flow<List<ArticlesModel>>
 }

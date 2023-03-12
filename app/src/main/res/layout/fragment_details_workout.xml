@@ -49,8 +49,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
-            android:visibility="invisible"
             android:textSize="0.01sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/btn_features"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +65,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAlignment="center"
-            android:visibility="invisible"
             android:textSize="0.01sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/btn_technique"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,28 +88,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_technique" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_description"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:gravity="left"
             android:text="@string/description"
+            android:textColor="@color/black"
             android:textSize="11sp"
             android:textStyle="bold"
-            android:gravity="left"
-            android:textColor="@color/black"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:layout_constraintBottom_toTopOf="@+id/tv_textDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nameWorkout"
-            tools:ignore="RtlHardcoded"
-            android:drawableEnd="@drawable/ic_arrow"/>
+            tools:ignore="RtlHardcoded" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_features"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
@@ -118,6 +118,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
+            android:drawableEnd="@drawable/ic_arrow"
             android:gravity="left"
             android:text="@string/features"
             android:textColor="@color/black"
@@ -128,27 +129,26 @@
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_textDescription"
-            tools:ignore="RtlHardcoded"
-            android:drawableEnd="@drawable/ic_arrow"/>
+            tools:ignore="RtlHardcoded" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_technique"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:gravity="left"
             android:text="@string/technique"
+            android:textColor="@color/black"
             android:textSize="11sp"
             android:textStyle="bold"
-            android:gravity="left"
-            android:textColor="@color/black"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_textImplementationOptions"
-            tools:ignore="RtlHardcoded"
-            android:drawableEnd="@drawable/ic_arrow"/>
+            tools:ignore="RtlHardcoded" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
@@ -191,10 +191,10 @@
                         android:id="@+id/etTextApproaches"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,10 +209,10 @@
                         android:id="@+id/etTextRepetitions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -227,10 +227,10 @@
                         android:id="@+id/etTextOperatingWeight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -241,7 +241,10 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="12dp"
                     android:gravity="center"
-                    android:text="@string/save">
+                    android:textColor="@color/black"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:text="@string/save"
+                    >
 
                 </com.google.android.material.button.MaterialButton>
             </LinearLayout>

@@ -28,6 +28,7 @@ interface WorkoutsRepository {
         repetitions: String,
         weight: String
     )
+
     suspend fun saveTrainingDay(trainingDayModel: TrainingDayModel)
     suspend fun showTrainingDay(): TrainingDayModel
     suspend fun saveTrainingDay1(id: Int, firstDay: String)
@@ -35,22 +36,27 @@ interface WorkoutsRepository {
         id: Int,
         secondDay: String
     )
+
     suspend fun saveTrainingDay3(
         id: Int,
         theThirdDay: String
     )
+
     suspend fun saveTrainingDay4(
         id: Int,
         fourthDay: String
     )
+
     suspend fun saveTrainingDay5(
         id: Int,
         fifthDay: String
     )
+
     suspend fun saveTrainingDay6(
         id: Int,
         sixthDay: String
     )
+
     suspend fun saveTrainingDay7(
         id: Int,
         seventhDay: String

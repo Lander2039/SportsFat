@@ -39,7 +39,6 @@ class NoInternetFragment : Fragment() {
             .load(R.drawable.internet)
             .into(viewBinding.ivInternet)
 
-
         viewModel.nav.observe(viewLifecycleOwner) {
             if (it != null) {
                 navigate(it)

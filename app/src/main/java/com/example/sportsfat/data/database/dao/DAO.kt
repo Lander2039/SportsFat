@@ -109,5 +109,4 @@ interface DAO {
     fun updateTrainingDay7(id: Int, seventhDay: String)
 
 
-
 }

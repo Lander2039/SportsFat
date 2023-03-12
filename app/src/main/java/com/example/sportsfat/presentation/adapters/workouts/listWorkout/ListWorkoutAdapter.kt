@@ -14,7 +14,6 @@ class ListWorkoutAdapter(
 
     private var listWorkouts = mutableListOf<WorkoutModel>()
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(list: List<WorkoutModel>) {
 

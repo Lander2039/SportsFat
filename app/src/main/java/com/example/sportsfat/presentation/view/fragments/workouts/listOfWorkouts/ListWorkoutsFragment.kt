@@ -25,7 +25,6 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
     private lateinit var listWorkoutsAdapter: ListWorkoutAdapter
     private var _viewBinding: FragmentListWorkoutsBinding? = null
     private val viewBinding get() = _viewBinding!!
-    private var changeWorkout: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +34,7 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
         return viewBinding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,33 +43,35 @@ class ListWorkoutsFragment : Fragment(), ListWorkoutListener {
         viewBinding.resListWorkout.layoutManager = LinearLayoutManager(context)
         viewBinding.resListWorkout.adapter = listWorkoutsAdapter
 
+        var changeWorkout: Int
+
         viewBinding.btnBackAndNeck.setOnClickListener {
             changeWorkout = 1
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnButtocks.setOnClickListener {
             changeWorkout = 2
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnPress.setOnClickListener {
             changeWorkout = 3
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnShoulders.setOnClickListener {
             changeWorkout = 4
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnHands.setOnClickListener {
             changeWorkout = 5
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnBreast.setOnClickListener {
             changeWorkout = 6
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
         viewBinding.btnLegs.setOnClickListener {
             changeWorkout = 7
-            changeList(changeWorkout!!)
+            changeList(changeWorkout)
         }
 
         viewModel.msg.observe(viewLifecycleOwner) {

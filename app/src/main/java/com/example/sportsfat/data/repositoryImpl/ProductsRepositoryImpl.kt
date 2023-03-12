@@ -17,7 +17,6 @@ class ProductsRepositoryImpl @Inject constructor(
 
     override suspend fun getData() {
         return withContext(Dispatchers.IO) {
-//            if (!DAO.doesArticlesEntityExist()) {
             val response = getProducts()
             response.map { productsList ->
                 val productsEntity =
@@ -32,8 +31,6 @@ class ProductsRepositoryImpl @Inject constructor(
                 DAO.insertProductsEntity(productsEntity)
             }
         }
-//            }
-//        }
     }
 
     override suspend fun showData(): Flow<List<ProductsModel>> {
