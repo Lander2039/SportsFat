@@ -47,6 +47,12 @@
     <string name="enter_weight">Enter weight</string>
     <string name="enter_activity_factor_from_1_2_to_1_9">Enter activity factor (from 1.2 to 1.9)</string>
     <string name="to_try_one_more_time">To try one more time</string>
+    <string name="first_day">FIRST DAY</string>
+    <string name="ChangeNameWorkout">Change the name of the workout</string>
+    <string name="EnterNewWorkoutName">Enter a new workout name</string>
+    <string name="Ok">OK</string>
+    <string name="Cansel">Cansel</string>
+    <string name="TrainingDay">Training Day</string>
     <string-array name="spinner_approaches">
         <item>1</item>
         <item>2</item>

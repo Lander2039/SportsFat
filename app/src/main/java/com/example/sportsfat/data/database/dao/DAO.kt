@@ -7,9 +7,11 @@ import androidx.room.Query
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
 import com.example.sportsfat.data.database.entity.UserEntity
+import com.example.sportsfat.data.database.entity.workouts.TrainingDayEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
 import com.example.sportsfat.domain.model.UserModel
+import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -78,5 +80,34 @@ interface DAO {
 
     @Query("UPDATE UserEntity SET weightToday =:weightToday WHERE id =:id")
     fun updateUserDateToday(id: Int, weightToday: Int)
+
+    @Insert
+    fun insertTrainingDayEntity(trainingDayEntity: TrainingDayEntity)
+
+    @Query("SELECT * From TrainingDayEntity")
+    fun getTrainingDayEntities(): TrainingDayModel
+
+    @Query("UPDATE TrainingDayEntity SET firstDay =:firstDay WHERE id =:id")
+    fun updateTrainingDay1(id: Int, firstDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET secondDay =:secondDay WHERE id =:id")
+    fun updateTrainingDay2(id: Int, secondDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET theThirdDay =:theThirdDay WHERE id =:id")
+    fun updateTrainingDay3(id: Int, theThirdDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET fourthDay =:fourthDay WHERE id =:id")
+    fun updateTrainingDay4(id: Int, fourthDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET fifthDay =:fifthDay WHERE id =:id")
+    fun updateTrainingDay5(id: Int, fifthDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET sixthDay =:sixthDay WHERE id =:id")
+    fun updateTrainingDay6(id: Int, sixthDay: String)
+
+    @Query("UPDATE TrainingDayEntity SET seventhDay =:seventhDay WHERE id =:id")
+    fun updateTrainingDay7(id: Int, seventhDay: String)
+
+
 
 }

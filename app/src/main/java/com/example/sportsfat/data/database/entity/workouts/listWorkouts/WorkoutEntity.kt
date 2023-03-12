@@ -27,6 +27,8 @@ data class WorkoutEntity(
     val repetitions: String,
     @ColumnInfo("weight")
     val weight: String,
+    @ColumnInfo("nameTrainingDay")
+    val nameTrainingDay: String,
     @ColumnInfo("isFavorite")
     val isFavorite: Boolean? = false
 )

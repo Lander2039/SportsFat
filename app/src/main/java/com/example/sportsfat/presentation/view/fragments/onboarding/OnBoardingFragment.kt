@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentOnbordingBinding
 import com.example.sportsfat.domain.model.UserModel
+import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import com.example.sportsfat.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,12 +54,26 @@ class OnBoardingFragment : Fragment() {
                         ?: 0) - (viewBinding.etWeightStart.text.toString().toIntOrNull() ?: 0)
                 )
             )
+            viewModel.saveTrainingDay(
+                TrainingDayModel(
+                    1,
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay),
+                    getString(R.string.TrainingDay)
+                )
+            )
         }
+
         viewModel.nav.observe(viewLifecycleOwner) {
             if (it != null) {
                 replaceGraph(it)
             }
         }
+
         viewBinding.checkBox.setOnClickListener {
             viewModel.appBackgroundSelection(R.color.grey)
         }

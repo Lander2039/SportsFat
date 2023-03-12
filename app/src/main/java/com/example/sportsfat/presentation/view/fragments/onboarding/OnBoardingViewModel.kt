@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportsfat.R
 import com.example.sportsfat.domain.model.UserModel
+import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import com.example.sportsfat.domain.user.UserInteractor
+import com.example.sportsfat.domain.workouts.WorkoutsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineName
@@ -17,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
-    private val userInteractor: UserInteractor
+    private val userInteractor: UserInteractor, private val workoutsInteractor: WorkoutsInteractor
 ) : ViewModel() {
 
     private val _nav = MutableLiveData<Int?>()
@@ -31,6 +33,25 @@ class OnBoardingViewModel @Inject constructor(
 
     private val _userData = MutableLiveData<UserModel>()
     val userData: LiveData<UserModel> = _userData
+
+    private val _trainingDay = MutableLiveData<TrainingDayModel>()
+    val trainingDay: LiveData<TrainingDayModel> = _trainingDay
+
+    fun saveTrainingDay(trainingDayModel: TrainingDayModel){
+        val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+            Log.w("exceptionHandler called", exception.toString())
+        }
+        viewModelScope.launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
+            try {
+                launch {
+                    workoutsInteractor.saveTrainingDay(trainingDayModel)
+                }
+            } catch (e: Exception) {
+                _error.value = e.message.toString()
+                Log.w("exception", "saveUserDateNew")
+            }
+        }
+    }
 
     var bmi: Double = 0.0
 

@@ -35,7 +35,7 @@ class UserDataViewModel @Inject constructor(private val userInteractor: UserInte
 
     fun calculateBMI(height: Double, weight: Int) {
         if (height == 0.0) {
-            _errorHeight.value = R.string.HeightCannotBeZero
+            _errorHeight.value
         }
         bmi = weight / (height * height)
     }

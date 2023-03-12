@@ -12,5 +12,6 @@ object BundleConstants {
     const val IMAGE_WORKOUT = "workoutImage"
     const val APPROACHES_WORKOUT = "workoutApproaches"
     const val REPETITIONS_WORKOUT = "workoutRepetitions"
+    const val NAME_WORKOUT_DAY = "nameWorkoutsDay"
 
 }

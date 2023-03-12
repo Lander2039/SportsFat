@@ -29,7 +29,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.153"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.086" />
@@ -54,15 +54,15 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:text="@string/weight"
-            android:textSize="20sp"
             android:textColor="@color/white"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintHorizontal_bias="0.619"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintVertical_bias="0.864" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_numberApproaches"
@@ -84,11 +84,11 @@
             android:id="@+id/tv_numberWeight"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:text=""
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

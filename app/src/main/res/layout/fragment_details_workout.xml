@@ -153,8 +153,10 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="360dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="60dp"
             app:cardCornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -165,13 +167,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:text="@string/editing_the_number_of_repetitions_and_approaches"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -191,6 +194,7 @@
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
+                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -208,6 +212,7 @@
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
+                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -225,6 +230,7 @@
                         android:backgroundTint="@color/white"
                         android:inputType="number"
                         android:maxLines="1"
+                        android:layout_margin="10dp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -232,9 +238,12 @@
                     android:id="@+id/btn_save"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="12dp"
                     android:gravity="center"
-                    android:text="@string/save"></com.google.android.material.button.MaterialButton>
+                    android:text="@string/save">
+
+                </com.google.android.material.button.MaterialButton>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

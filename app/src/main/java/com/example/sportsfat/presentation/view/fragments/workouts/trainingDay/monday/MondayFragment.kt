@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -44,13 +46,14 @@ class MondayFragment : Fragment(), WorkoutListener {
         viewBinding.resWorkout.layoutManager = LinearLayoutManager(context)
         viewBinding.resWorkout.adapter = workoutAdapter
 
-
+        viewModel.trainingDayShow()
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.items.catch {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
             }.collect { flowList ->
                 flowList.collect { list ->
                     workoutAdapter.submitList(list)
+
                 }
             }
         }
@@ -67,6 +70,10 @@ class MondayFragment : Fragment(), WorkoutListener {
                 navigate(it)
             }
         }
+
+        viewModel.trainingDay.observe(viewLifecycleOwner){
+            viewBinding.tvNameTrainingDay.text = it.firstDay
+        }
         viewBinding.floatingActionButton.setOnClickListener {
             viewModel.openListWorkouts()
             viewModel.finishPerformed()
@@ -81,6 +88,7 @@ class MondayFragment : Fragment(), WorkoutListener {
                 bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
                 bundle.putString(BundleConstants.APPROACHES_WORKOUT, navBundle.approaches)
                 bundle.putString(BundleConstants.REPETITIONS_WORKOUT, navBundle.repetitions)
+                bundle.putString(BundleConstants.NAME_WORKOUT_DAY, navBundle.nameWorkoutsDay)
                 navigateWithBundle(
                     navBundle.destinationId, bundle
                 )
@@ -89,8 +97,8 @@ class MondayFragment : Fragment(), WorkoutListener {
         }
     }
 
-    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String) {
-        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image, approaches, repetitions)
+    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String,nameWorkoutsDay: String) {
+        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image, approaches, repetitions,nameWorkoutsDay)
     }
 
     override fun deleteWorkout(name: String) {
