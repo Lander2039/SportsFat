@@ -2,8 +2,10 @@ package com.example.sportsfat.data.repositoryImpl
 
 import com.example.sportsfat.R
 import com.example.sportsfat.data.database.dao.DAO
+import com.example.sportsfat.data.database.entity.workouts.TrainingDayEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
+import com.example.sportsfat.domain.model.workout.TrainingDayModel
 import com.example.sportsfat.domain.model.workout.WorkoutModel
 import com.example.sportsfat.domain.model.workout.mondayWorkout.MondayWorkoutModel
 import com.example.sportsfat.domain.workouts.WorkoutsRepository
@@ -34,7 +36,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                             workoutsList.keyWorkout,
                             workoutsList.approaches,
                             workoutsList.repetitions,
-                            workoutsList.weight
+                            workoutsList.weight,
+                            workoutsList.nameTrainingDay
                         )
                     DAO.insertWorkoutsEntity(workoutsEntity)
                 }
@@ -57,6 +60,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                         it.approaches,
                         it.repetitions,
                         it.weight,
+                        it.nameTrainingDay,
                         isFavorite = false
                     )
                 }
@@ -80,7 +84,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                     workoutModel.keyWorkout,
                     workoutModel.approaches,
                     workoutModel.repetitions,
-                    workoutModel.weight
+                    workoutModel.weight,
+                    workoutModel.nameTrainingDay
                 )
             )
             DAO.addToWorkouts(workoutModel.name, isFavorite)
@@ -101,7 +106,8 @@ class WorkoutsRepositoryImpl @Inject constructor(
                         it.keyWorkout,
                         it.approaches,
                         it.repetitions,
-                        it.weight
+                        it.weight,
+                        it.nameTrainingDay
                     )
                 }
             }
@@ -127,6 +133,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 workoutsEntity.approaches,
                 workoutsEntity.repetitions,
                 workoutsEntity.weight,
+                workoutsEntity.nameTrainingDay,
                 isFavorite = false
             )
         }
@@ -140,6 +147,116 @@ class WorkoutsRepositoryImpl @Inject constructor(
     ) {
         return withContext(Dispatchers.IO) {
             DAO.saveApproaches(name, approaches, repetitions, weight)
+        }
+    }
+
+    override suspend fun saveTrainingDay(trainingDayModel: TrainingDayModel) {
+        return withContext(Dispatchers.IO) {
+            DAO.insertTrainingDayEntity(
+                TrainingDayEntity(
+                    trainingDayModel.id,
+                    trainingDayModel.firstDay,
+                    trainingDayModel.secondDay,
+                    trainingDayModel.theThirdDay,
+                    trainingDayModel.fourthDay,
+                    trainingDayModel.fifthDay,
+                    trainingDayModel.sixthDay,
+                    trainingDayModel.seventhDay
+                )
+            )
+        }
+    }
+
+    override suspend fun showTrainingDay(): TrainingDayModel {
+        return withContext(Dispatchers.IO) {
+            val trainingDayEntity = DAO.getTrainingDayEntities()
+            TrainingDayModel(
+                trainingDayEntity.id,
+                trainingDayEntity.firstDay,
+                trainingDayEntity.secondDay,
+                trainingDayEntity.theThirdDay,
+                trainingDayEntity.fourthDay,
+                trainingDayEntity.fifthDay,
+                trainingDayEntity.sixthDay,
+                trainingDayEntity.seventhDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay1(
+        id: Int,
+        firstDay: String
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay1(
+                id, firstDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay2(
+        id: Int,
+        secondDay: String,
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay2(
+                id, secondDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay3(
+        id: Int,
+        theThirdDay: String
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay3(
+                id, theThirdDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay4(
+        id: Int,
+        fourthDay: String,
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay4(
+                id, fourthDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay5(
+        id: Int,
+        fifthDay: String
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay5(
+                id, fifthDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay6(
+        id: Int,
+        sixthDay: String
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay6(
+                id, sixthDay
+            )
+        }
+    }
+
+    override suspend fun saveTrainingDay7(
+        id: Int,
+        seventhDay: String
+    ) {
+        return withContext(Dispatchers.IO) {
+            DAO.updateTrainingDay7(
+                id, seventhDay
+            )
         }
     }
 
@@ -171,6 +288,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -197,6 +315,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -214,6 +333,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -256,6 +376,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -299,6 +420,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -380,6 +502,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -427,17 +550,15 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
                 name = "Разведение рук с гантелями",
                 description = "Разведение рук с гантелями - одно из главных изолирующих упражнений на грудные мышцы, особенно их верхнюю и внутреннюю части. Упражнение придает груди «крутую», выпуклую форму, а также хорошо подходит для создания отчетливого разделения между левой и правой большими грудными мышцами.\n" +
                         "\n" +
-                        "Изменение наклона скамьи позволяет акцентировать нагрузку либо в верхнюю (поднятый головной конец скамьи), либо в среднюю (горизонтальная скамья), либо в нижнюю области груди (опущенный головной конец скамьи).\n" +
-                        "Важное условие правильного выполнения разведения рук с гантелями это - высота скамьи, которая должна быть такой, чтобы можно было прочно поставить ступни на пол. Дело в том, что большой вес гантелей грозит потерей равновесия. Застраховать себя можно лишь приняв надежный упор ногами.\n" +
-                        "\n" +
                         "\n",
-                implementationOptions = "",
+                implementationOptions = "Изменение наклона скамьи позволяет акцентировать нагрузку либо в верхнюю (поднятый головной конец скамьи), либо в среднюю (горизонтальная скамья), либо в нижнюю области груди (опущенный головной конец скамьи). Важное условие правильного выполнения разведения рук с гантелями это - высота скамьи, которая должна быть такой, чтобы можно было прочно поставить ступни на пол. Дело в том, что большой вес гантелей грозит потерей равновесия. Застраховать себя можно лишь приняв надежный упор ногами.",
                 executionTechnique = "Лягте на горизонтальную скамью, ноги на ширине плеч, упираются в пол.\n" +
                         "Возьмите в обе руки гантели и поднимите их над грудью, а точнее над плечами. Руки слегка согнуты в локтях. Угол в локтевом суставе зафиксирован и остается неизменным до конца сета.\n" +
                         "Разведите руки в стороны. Гантели движутся в вертикальной плоскости.\n" +
@@ -456,6 +577,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -472,6 +594,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -492,6 +615,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -524,6 +648,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -555,6 +680,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -583,6 +709,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -604,6 +731,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -647,6 +775,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -669,6 +798,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -693,6 +823,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -716,6 +847,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -743,10 +875,11 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
-                name = "Скручивание с подъемом корпуса на наклонной скамье",
+                name = "Скручивание на наклонной скамье",
                 description = "Скручивание с подъемом корпуса на наклонной скамье - модифицированный вариант выполнения упражнения, более безопасный для позвоночника и позволяет лучше контролировать движения. Кроме того, он позволяет сконцентрировать усилия на нижнем пучке прямой мышцы живота.\n" +
                         "",
                 implementationOptions = "Лягте на скамью, наклоненную под углом 15—30 градусов, согните ноги в коленных суставах и поставьте их всей ступней на скамью.\n" +
@@ -764,10 +897,11 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
-                name = "Подъем согнутых ног на брусьях",
+                name = "Подъем ног на брусьях",
                 description = "Это упражнение эффективное, но не подходит для тех, у кого недостаточно развиты основные навыки стабилизации тела или имеются проблемы с плечевыми суставами и поясницей.\n" +
                         "",
                 implementationOptions = "Основные мышцы: прямые и косые мышцы живота.\n" +
@@ -791,6 +925,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -816,10 +951,11 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
-                name = "Отжимания трицепсами спиной к скамье",
+                name = "Отжимания спиной к скамье",
                 description = "Это упражнение прорабатывает трицепсы, грудные мышцы и передние отделы дельтовидных мышц.",
                 implementationOptions = "Советы относительно правильной техники выполнения упражнения:\n" +
                         "\n" +
@@ -841,6 +977,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
@@ -871,10 +1008,11 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             ),
             WorkoutModel(
-                name = "Разгибание рук на трицепс с использованием канатной рукояти",
+                name = "Разгибание рук на трицепс",
                 description = "Разгибая руки в локтевых суставах, подтяните канатную рукоять к передней части бедер, а затем разведите концы рукояти по бокам тела. В конце движения ладони обращены назад, а большие пальцы — к бедрам. Медленно вернитесь в исходное положение и повторите упражнение.\n" +
                         "",
                 implementationOptions = "При разгибании рук на трицепс с использованием канатной рукояти, встаньте лицом к верхнему блоку. Одна нога впереди.\n" +
@@ -897,6 +1035,7 @@ class WorkoutsRepositoryImpl @Inject constructor(
                 approaches = "1",
                 repetitions = "1",
                 weight = "1",
+                nameTrainingDay = "FIRST DAY",
                 isFavorite = false
             )
         )

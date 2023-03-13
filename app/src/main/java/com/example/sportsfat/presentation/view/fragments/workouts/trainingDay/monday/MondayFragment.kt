@@ -44,13 +44,14 @@ class MondayFragment : Fragment(), WorkoutListener {
         viewBinding.resWorkout.layoutManager = LinearLayoutManager(context)
         viewBinding.resWorkout.adapter = workoutAdapter
 
-
+        viewModel.trainingDayShow()
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.items.catch {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
             }.collect { flowList ->
                 flowList.collect { list ->
                     workoutAdapter.submitList(list)
+
                 }
             }
         }
@@ -58,7 +59,7 @@ class MondayFragment : Fragment(), WorkoutListener {
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
         }
 
-        viewModel.msg.observe(viewLifecycleOwner){
+        viewModel.msg.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
 
@@ -66,6 +67,10 @@ class MondayFragment : Fragment(), WorkoutListener {
             if (it != null) {
                 navigate(it)
             }
+        }
+
+        viewModel.trainingDay.observe(viewLifecycleOwner) {
+            viewBinding.tvNameTrainingDay.text = it.firstDay
         }
         viewBinding.floatingActionButton.setOnClickListener {
             viewModel.openListWorkouts()
@@ -76,11 +81,18 @@ class MondayFragment : Fragment(), WorkoutListener {
                 val bundle = Bundle()
                 bundle.putString(BundleConstants.NAME_WORKOUT, navBundle.name)
                 bundle.putString(BundleConstants.DESCRIPTION_WORKOUT, navBundle.description)
-                bundle.putString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT, navBundle.implementationOptions)
-                bundle.putString(BundleConstants.EXECUTION_TECHNIQUE_WORKOUT, navBundle.executionTechnique)
+                bundle.putString(
+                    BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT,
+                    navBundle.implementationOptions
+                )
+                bundle.putString(
+                    BundleConstants.EXECUTION_TECHNIQUE_WORKOUT,
+                    navBundle.executionTechnique
+                )
                 bundle.putInt(BundleConstants.IMAGE_WORKOUT, navBundle.image)
                 bundle.putString(BundleConstants.APPROACHES_WORKOUT, navBundle.approaches)
                 bundle.putString(BundleConstants.REPETITIONS_WORKOUT, navBundle.repetitions)
+                bundle.putString(BundleConstants.NAME_WORKOUT_DAY, navBundle.nameWorkoutsDay)
                 navigateWithBundle(
                     navBundle.destinationId, bundle
                 )
@@ -89,8 +101,26 @@ class MondayFragment : Fragment(), WorkoutListener {
         }
     }
 
-    override fun onElementSelected(name: String, description: String, implementationOptions: String, executionTechnique: String,image: Int, approaches: String,repetitions: String) {
-        viewModel.elementClicked(name, description,implementationOptions, executionTechnique,image, approaches, repetitions)
+    override fun onElementSelected(
+        name: String,
+        description: String,
+        implementationOptions: String,
+        executionTechnique: String,
+        image: Int,
+        approaches: String,
+        repetitions: String,
+        nameWorkoutsDay: String
+    ) {
+        viewModel.elementClicked(
+            name,
+            description,
+            implementationOptions,
+            executionTechnique,
+            image,
+            approaches,
+            repetitions,
+            nameWorkoutsDay
+        )
     }
 
     override fun deleteWorkout(name: String) {
@@ -100,5 +130,4 @@ class MondayFragment : Fragment(), WorkoutListener {
     override fun addApproachesAndRepetitions(name: String, approaches: String) {
 
     }
-
 }

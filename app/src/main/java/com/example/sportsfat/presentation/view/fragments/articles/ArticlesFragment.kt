@@ -1,5 +1,6 @@
 package com.example.sportsfat.presentation.view.fragments.articles
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +16,13 @@ import com.example.sportsfat.presentation.adapters.articles.listener.ArticlesLis
 import com.example.sportsfat.utils.BundleConstants.IMAGE_ARTICLES
 import com.example.sportsfat.utils.BundleConstants.NAME_ARTICLES
 import com.example.sportsfat.utils.BundleConstants.TEXT_ARTICLES
+import com.example.sportsfat.utils.NavHelper.navigate
 import com.example.sportsfat.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 
 @AndroidEntryPoint
-class ArticlesFragment : Fragment(), ArticlesListener {
+class ArticlesFragment : Fragment(), ArticlesListener{
 
     private val viewModel: ArticlesViewModel by viewModels()
 
@@ -54,9 +56,16 @@ class ArticlesFragment : Fragment(), ArticlesListener {
                 }
             }
         }
+        viewModel.nav.observe(viewLifecycleOwner) {
+            if (it != null) {
+                navigate(it)
+            }
+        }
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            viewModel.getDataArticles()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                viewModel.getDataArticles()
+            }
         }
 
         viewModel.bundle.observe(viewLifecycleOwner) { navBundle ->
@@ -73,7 +82,6 @@ class ArticlesFragment : Fragment(), ArticlesListener {
             }
         }
     }
-
     override fun onElementSelected(articlesName: String, image: String, articlesText: String) {
         viewModel.elementClicked(articlesName, image, articlesText)
     }

@@ -10,5 +10,6 @@ data class WorkoutModel(
     val approaches: String,
     val repetitions: String,
     val weight: String,
+    val nameTrainingDay: String,
     val isFavorite: Boolean
 )

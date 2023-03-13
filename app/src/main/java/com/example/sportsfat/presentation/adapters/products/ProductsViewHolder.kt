@@ -9,7 +9,6 @@ class ProductsViewHolder(
 
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-
     fun bind(productsModel: ProductsModel) {
         viewBinding.tvNameProduct.text = productsModel.name
         viewBinding.tvCaloriesProduct.text = productsModel.calories.toString()

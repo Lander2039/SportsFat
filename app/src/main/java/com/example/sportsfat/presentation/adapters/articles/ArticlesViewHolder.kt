@@ -13,11 +13,9 @@ class ArticlesViewHolder(
 
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-
     fun bind(articlesModel: ArticlesModel) {
         viewBinding.tvNameArticles.text = articlesModel.description
         Picasso.get().load(Uri.parse(articlesModel.image)).into(viewBinding.ivImageArticles)
-
 
         viewBinding.ivImageArticles.setOnClickListener {
             articlesListener.onElementSelected(

@@ -35,7 +35,7 @@ class DetailsWorkoutFragment : Fragment() {
 
         val bundle = arguments
         bundle?.let { safeBundle ->
-            val name = safeBundle.getString(BundleConstants.NAME_WORKOUT)
+            val name = safeBundle.getString(NAME_WORKOUT)
             val description = safeBundle.getString(BundleConstants.DESCRIPTION_WORKOUT)
             val implementationOptions =
                 safeBundle.getString(BundleConstants.IMPLEMENTATION_OPTIONS_WORKOUT)
@@ -57,22 +57,34 @@ class DetailsWorkoutFragment : Fragment() {
             viewBinding.btnFeatures.setOnClickListener {
                 if (viewBinding.tvTextImplementationOptions.visibility == View.VISIBLE) {
                     viewBinding.tvTextImplementationOptions.visibility = View.INVISIBLE
-                    viewBinding.tvTextImplementationOptions.setTextSize(TypedValue.COMPLEX_UNIT_SP, 0.1f)
+                    viewBinding.tvTextImplementationOptions.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        0.1f
+                    )
                     viewBinding.tvTextImplementationOptions.text = implementationOptions
                 } else {
                     viewBinding.tvTextImplementationOptions.visibility = View.VISIBLE
                     viewBinding.tvTextImplementationOptions.text = implementationOptions
-                    viewBinding.tvTextImplementationOptions.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+                    viewBinding.tvTextImplementationOptions.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        20f
+                    )
                 }
             }
             viewBinding.btnTechnique.setOnClickListener {
                 if (viewBinding.tvTextExecutionTechnique.visibility == View.VISIBLE) {
                     viewBinding.tvTextExecutionTechnique.visibility = View.INVISIBLE
-                    viewBinding.tvTextExecutionTechnique.setTextSize(TypedValue.COMPLEX_UNIT_SP, 0.1f)
+                    viewBinding.tvTextExecutionTechnique.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        0.1f
+                    )
                 } else {
                     viewBinding.tvTextExecutionTechnique.visibility = View.VISIBLE
                     viewBinding.tvTextExecutionTechnique.text = executionTechnique
-                    viewBinding.tvTextExecutionTechnique.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+                    viewBinding.tvTextExecutionTechnique.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        20f
+                    )
                 }
             }
             viewBinding.tvNameWorkout.text = name

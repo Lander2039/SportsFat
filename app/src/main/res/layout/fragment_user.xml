@@ -45,7 +45,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -122,9 +121,9 @@
                 android:id="@+id/iv_backgroundResult"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0.99"
+                android:alpha="0.9"
                 android:scaleType="centerCrop"
-                android:src="@drawable/result5"
+                android:src="@drawable/user_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -139,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/my_results"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -156,9 +155,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="@string/my_results"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="italic"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.114"
@@ -173,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginStart="24dp"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/purple_500"
                 android:textSize="25sp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -192,8 +191,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
                 android:text="@string/before"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/purple_500"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -227,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/purple_500"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
@@ -243,11 +243,12 @@
                 android:id="@+id/tv_userAfter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="64dp"
                 android:text="@string/after"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_backgroundResult"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.577"
@@ -256,12 +257,11 @@
                 app:layout_constraintVertical_bias="0.0">
 
             </com.google.android.material.textview.MaterialTextView>
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iw_changeUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_change"
+                android:src="@drawable/ic_baseline_add_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.957"
@@ -271,7 +271,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardViewMotivation"
         android:layout_width="match_parent"
@@ -289,14 +288,12 @@
             android:id="@+id/iv_backgroundMotivation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.99"
+            android:alpha="0.01"
             android:scaleType="centerCrop"
             android:src="@drawable/result"
             app:layout_constraintVertical_bias="0.0">
 
         </com.google.android.material.imageview.ShapeableImageView>
-
     </com.google.android.material.card.MaterialCardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

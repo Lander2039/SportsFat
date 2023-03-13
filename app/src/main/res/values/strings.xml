@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SportsFat</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="articles">Articles</string>
     <string name="start">Start</string>
@@ -40,35 +39,24 @@
     <string name="todo">TODO</string>
     <string name="repetitions">Repetitions:</string>
     <string name="approaches">Approaches:</string>
-    <string-array name="spinner_approaches">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <string-array name="spinner_repetitions">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-    </string-array>
+    <string name="hello_my_chubby_friend">Hello my chubby friend</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_height_meters">Enter height (meters)</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="enter_activity_factor_from_1_2_to_1_9">Enter activity factor (from 1.2 to 1.9)</string>
+    <string name="to_try_one_more_time">To try one more time</string>
+    <string name="first_day">FIRST DAY</string>
+    <string name="ChangeNameWorkout">Change the name of the workout</string>
+    <string name="EnterNewWorkoutName">Enter a new workout name</string>
+    <string name="Ok">OK</string>
+    <string name="Cansel">Cansel</string>
+    <string name="TrainingDay">Training Day</string>
+    <string name="Calories">\"Calories: \"</string>
+    <string name="Squirrels">\"Squirrels: \"</string>
+    <string name="Fats">\"Fats: \"</string>
+    <string name="Carbohydrates">\"Carbohydrates: \"</string>
+    <string name="background_grey">Background grey</string>
+    <string name="weight_today">Weight today:</string>
+    <string name="show_product_list">Show product list</string>
 </resources>

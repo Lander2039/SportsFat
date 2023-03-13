@@ -13,12 +13,20 @@
         <action
             android:id="@+id/action_articlesFragment_to_detailsArticlesFragment"
             app:destination="@id/detailsArticlesFragment" />
+        <action
+            android:id="@+id/action_articlesFragment_to_noInternetFragment"
+            app:destination="@id/noInternetFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsArticlesFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.articles.detailsArticles.DetailsArticlesFragment"
         android:label="fragment_details_articles"
-        tools:layout="@layout/fragment_details_articles" />
+        tools:layout="@layout/fragment_details_articles">
+        <action
+            android:id="@+id/action_detailsArticlesFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment"
+            />
+    </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.products.ProductsFragment"
@@ -32,6 +40,9 @@
         <action
             android:id="@+id/action_workoutsFragment_to_mondayFragment"
             app:destination="@id/mondayFragment" />
+        <action
+            android:id="@+id/action_workoutsFragment_to_noInternetFragment"
+            app:destination="@id/noInternetFragment" />
     </fragment>
     <fragment
         android:id="@+id/mondayFragment"
@@ -44,6 +55,9 @@
         <action
             android:id="@+id/action_mondayFragment_to_detailsWorkoutFragment"
             app:destination="@id/detailsWorkoutFragment" />
+        <action
+            android:id="@+id/action_mondayFragment_to_workoutsFragment"
+            app:destination="@id/workoutsFragment" />
     </fragment>
     <fragment
         android:id="@+id/listWorkoutsFragment"
@@ -58,7 +72,14 @@
         android:id="@+id/detailsWorkoutFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.workouts.trainingDay.monday.detailWorkouts.DetailsWorkoutFragment"
         android:label="fragment_details_workout"
-        tools:layout="@layout/fragment_details_workout" />
+        tools:layout="@layout/fragment_details_workout" >
+        <action
+            android:id="@+id/action_detailsWorkoutFragment_to_mondayFragment"
+            app:destination="@id/mondayFragment" />
+        <action
+            android:id="@+id/action_detailsWorkoutFragment_to_listWorkoutsFragment"
+            app:destination="@id/listWorkoutsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userFragment"
         android:name="com.example.sportsfat.presentation.view.fragments.user.UserFragment"
@@ -90,6 +111,15 @@
         tools:layout="@layout/fragment_user_change" >
         <action
             android:id="@+id/action_userChangeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noInternetFragment"
+        android:name="com.example.sportsfat.presentation.view.fragments.internet.NoInternetFragment"
+        android:label="fragment_no_internet"
+        tools:layout="@layout/fragment_no_internet" >
+        <action
+            android:id="@+id/action_noInternetFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
 </navigation>

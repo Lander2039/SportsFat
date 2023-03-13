@@ -6,11 +6,12 @@ import androidx.room.RoomDatabase
 import com.example.sportsfat.data.database.entity.ArticlesEntity
 import com.example.sportsfat.data.database.entity.ProductsEntity
 import com.example.sportsfat.data.database.entity.UserEntity
+import com.example.sportsfat.data.database.entity.workouts.TrainingDayEntity
 import com.example.sportsfat.data.database.entity.workouts.listWorkouts.WorkoutEntity
 import com.example.sportsfat.data.database.entity.workouts.mondayWorkouts.MondayWorkoutsEntity
 
 @androidx.room.Database(
-    entities = [ArticlesEntity::class, ProductsEntity::class, WorkoutEntity::class, MondayWorkoutsEntity::class, UserEntity::class],
+    entities = [ArticlesEntity::class, ProductsEntity::class, WorkoutEntity::class, MondayWorkoutsEntity::class, UserEntity::class, TrainingDayEntity::class],
     version = 1,
     exportSchema = false
 )

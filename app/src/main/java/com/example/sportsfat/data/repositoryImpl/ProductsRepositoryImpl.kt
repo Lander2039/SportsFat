@@ -14,6 +14,51 @@ import javax.inject.Inject
 class ProductsRepositoryImpl @Inject constructor(
     private val DAO: DAO
 ) : ProductsRepository {
+
+    override suspend fun getData() {
+        return withContext(Dispatchers.IO) {
+            val response = getProducts()
+            response.map { productsList ->
+                val productsEntity =
+                    ProductsEntity(
+                        Random().nextInt(),
+                        productsList.name,
+                        productsList.calories,
+                        productsList.squirrels,
+                        productsList.fats,
+                        productsList.carbohydrates
+                    )
+                DAO.insertProductsEntity(productsEntity)
+            }
+        }
+    }
+
+    override suspend fun showData(): Flow<List<ProductsModel>> {
+        return withContext(Dispatchers.IO) {
+            val productsEntity = DAO.getProductsEntities()
+            productsEntity.map { productsList ->
+                productsList.map {
+                    ProductsModel(
+                        it.name, it.calories, it.squirrels, it.fats, it.carbohydrates
+                    )
+                }
+            }
+        }
+    }
+
+    override suspend fun findProductByName(searchText: String): ProductsModel {
+        return withContext(Dispatchers.IO) {
+            val productsEntity = DAO.findProductsEntityByDescription(searchText)
+            ProductsModel(
+                productsEntity.name,
+                productsEntity.calories,
+                productsEntity.squirrels,
+                productsEntity.fats,
+                productsEntity.carbohydrates
+            )
+        }
+    }
+
     fun getProducts(): List<ProductsModel> {
         val listProducts = listOf<ProductsModel>(
             ProductsModel(
@@ -2020,52 +2065,5 @@ class ProductsRepositoryImpl @Inject constructor(
             ),
         )
         return listProducts
-    }
-
-    override suspend fun getData() {
-        return withContext(Dispatchers.IO) {
-//            if (!DAO.doesArticlesEntityExist()) {
-            val response = getProducts()
-            response.map { productsList ->
-                val productsEntity =
-                    ProductsEntity(
-                        Random().nextInt(),
-                        productsList.name,
-                        productsList.calories,
-                        productsList.squirrels,
-                        productsList.fats,
-                        productsList.carbohydrates
-                    )
-                DAO.insertProductsEntity(productsEntity)
-            }
-        }
-//            }
-//        }
-    }
-
-    override suspend fun showData(): Flow<List<ProductsModel>> {
-        return withContext(Dispatchers.IO) {
-            val productsEntity = DAO.getProductsEntities()
-            productsEntity.map { productsList ->
-                productsList.map {
-                    ProductsModel(
-                        it.name, it.calories, it.squirrels, it.fats, it.carbohydrates
-                    )
-                }
-            }
-        }
-    }
-
-    override suspend fun findProductByName(searchText: String): ProductsModel {
-        return withContext(Dispatchers.IO) {
-            val productsEntity = DAO.findProductsEntityByDescription(searchText)
-            ProductsModel(
-                productsEntity.name,
-                productsEntity.calories,
-                productsEntity.squirrels,
-                productsEntity.fats,
-                productsEntity.carbohydrates
-            )
-        }
     }
 }

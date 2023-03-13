@@ -11,7 +11,6 @@ class ListWorkoutViewHolder(
 
 ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-
     fun bind(workoutModel: WorkoutModel) {
         viewBinding.tvNameWorkout.text = workoutModel.name
 
@@ -23,12 +22,10 @@ class ListWorkoutViewHolder(
                 workoutModel.executionTechnique,
                 workoutModel.image
             )
-
             listWorkoutListener.onAddClicked(workoutModel.name, it.isSelected)
         }
 
         viewBinding.ivAddWorkout.setOnClickListener {
-
             listWorkoutListener.onAddClicked(workoutModel.name, it.isSelected)
         }
     }

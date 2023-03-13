@@ -25,7 +25,8 @@ class WorkoutViewHolder(
                 mondayWorkoutModel.executionTechnique,
                 mondayWorkoutModel.image,
                 mondayWorkoutModel.approaches,
-                mondayWorkoutModel.repetitions
+                mondayWorkoutModel.repetitions,
+                mondayWorkoutModel.nameTrainingDay
             )
         }
 

@@ -11,12 +11,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProductsViewModel @Inject constructor(private val productsInteractor: ProductsInteractor) :
     ViewModel() {
+
+    val products = flow { emit(productsInteractor.showData()) }
 
     private val _product = MutableLiveData<ProductsModel>()
     val product: LiveData<ProductsModel> = _product
