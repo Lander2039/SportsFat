@@ -80,5 +80,12 @@ class ProductsFragment : Fragment(), ProductsListener {
             viewBinding.tvCarbohydratesProduct.text =
                 getString(R.string.Carbohydrates) + it.carbohydrates.toString()
         }
+        viewBinding.btnShow.setOnClickListener {
+            if (viewBinding.resWorkout.visibility == View.VISIBLE) {
+                viewBinding.resWorkout.visibility = View.INVISIBLE
+            } else {
+                viewBinding.resWorkout.visibility = View.VISIBLE
+            }
+        }
     }
 }

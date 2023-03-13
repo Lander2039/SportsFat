@@ -7,8 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sportsfat.R
 import com.example.sportsfat.utils.InternetConnection
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+@HiltViewModel
 class NoInternetViewModel @Inject constructor(
     private val internetConnection: InternetConnection
 ) : ViewModel() {

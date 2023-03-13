@@ -13,8 +13,9 @@ import com.bumptech.glide.Glide
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.FragmentNoInternetBinding
 import com.example.sportsfat.utils.NavHelper.navigate
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class NoInternetFragment : Fragment() {
 
     private var _viewBinding: FragmentNoInternetBinding? = null

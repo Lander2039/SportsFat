@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/spr_back">
+        android:background="@drawable/workouts">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_nameWorkout"
@@ -65,7 +65,7 @@
             android:id="@+id/tv_numberApproaches"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text=""
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -81,7 +81,7 @@
             android:id="@+id/tv_numberWeight"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:text=""
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -91,7 +91,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/materialTextView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintVertical_bias="0.864" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView2"
@@ -103,7 +103,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintHorizontal_bias="0.061"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.864" />
@@ -112,7 +112,7 @@
             android:id="@+id/tv_numberRepetitions"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="8dp"
             android:text=""
             android:textColor="@color/white"
             android:textSize="20sp"

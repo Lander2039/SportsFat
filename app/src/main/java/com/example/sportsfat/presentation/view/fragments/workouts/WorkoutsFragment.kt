@@ -121,9 +121,9 @@ class WorkoutsFragment : Fragment() {
             viewModel.openMonday()
             viewModel.finishPerformed()
         }
-        viewBinding.tvNameTrainingDay3.setOnClickListener {
-            viewModel.openNoInternet()
-            viewModel.finishPerformed()
-        }
+//        viewBinding.tvNameTrainingDay3.setOnClickListener {
+//            viewModel.openNoInternet()
+//            viewModel.finishPerformed()
+//        }
     }
 }

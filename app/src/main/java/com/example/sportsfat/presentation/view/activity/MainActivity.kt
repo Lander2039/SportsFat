@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.sportsfat.R
 import com.example.sportsfat.databinding.ActivityMainBinding
@@ -28,7 +26,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setContentView(viewBinding.root)
         val actionBar = supportActionBar
         actionBar?.hide()
-
         viewModel.checkUserExists()
 
         navHostFragment = supportFragmentManager.findFragmentById(
@@ -44,12 +41,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController.addOnDestinationChangedListener(this)
 
         viewBinding.buttonNavigation.setupWithNavController(navController)
-
-        val btnNav = AppBarConfiguration(
-            setOf(R.id.userFragment, R.id.onBoardingFragment)
-        )
-
-        NavigationUI.setupActionBarWithNavController(this, navController, btnNav)
 
         viewModel.visibility.observe(this) {
             viewBinding.buttonNavigation.visibility = it
